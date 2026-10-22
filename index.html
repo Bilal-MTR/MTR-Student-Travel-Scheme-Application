@@ -1,79 +1,3487 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f5f8fb">
-<title>Student Travel Scheme — records demo</title>
-<style>
-:root{color-scheme:light dark;--ink:#182a3a;--muted:#627487;--blue:#1769aa;--blue2:#12568e;--soft:#eaf4fc;--canvas:#f5f8fb;--surface:#fff;--line:#dce5ec;--green:#28754f;--greenbg:#eaf5ee;--amber:#78521d;--amberbg:#fff5e5;--red:#a33b36;--redbg:#fdecea;--shadow:0 8px 25px rgba(22,48,71,.06)}
-*{box-sizing:border-box}body{margin:0;background:var(--canvas);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.top{background:var(--surface);border-bottom:1px solid var(--line)}.topin{max-width:1120px;margin:auto;padding:13px 26px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:11px;color:var(--ink);text-decoration:none}.mark{width:38px;height:38px;background:var(--blue);color:#fff;border-radius:11px;display:grid;place-items:center;font-weight:800}.brand strong{display:block;font-size:15px;line-height:1.25}.brand small{display:block;color:var(--muted);font-size:12px;margin-top:2px}.nav{display:flex;gap:5px}.nav button{border:0;background:transparent;color:var(--muted);padding:9px 13px;border-radius:9px;min-height:44px;font-weight:650}.nav button[aria-current="page"],.nav button:hover{background:var(--soft);color:var(--blue2)}main{max-width:1120px;margin:auto;padding:24px 26px 64px}.warning{display:flex;gap:11px;padding:13px 16px;border-radius:11px;border:1px solid #efdcb7;background:var(--amberbg);color:#62491f;font-size:13px}.warning strong{color:#4d3716}.hero{padding:27px 0 24px;display:flex;justify-content:space-between;gap:25px;align-items:center}.eyebrow{color:var(--blue);text-transform:uppercase;font-size:11px;font-weight:800;letter-spacing:.1em}.hero h1{font-size:clamp(30px,4vw,43px);line-height:1.13;letter-spacing:-.04em;margin:7px 0 10px}.hero p{margin:0;color:var(--muted);max-width:690px}.hero-side{min-width:245px;max-width:290px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:16px 18px;box-shadow:var(--shadow);font-size:13px;color:var(--muted)}.hero-side strong{display:block;color:var(--ink);font-size:14px;margin-bottom:4px}.subnav{display:flex;gap:8px;margin:0 0 16px;border-bottom:1px solid var(--line)}.subnav button{border:0;background:transparent;color:var(--muted);padding:11px 14px;margin-bottom:-1px;border-bottom:2px solid transparent;font-weight:700}.subnav button.active{color:var(--blue2);border-bottom-color:var(--blue)}.card{background:var(--surface);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);padding:24px}.card h2{margin:0 0 6px;font-size:23px;letter-spacing:-.025em}.lead{margin:0 0 19px;color:var(--muted);font-size:14px}.grid{display:grid;grid-template-columns:260px minmax(0,1fr);gap:20px;align-items:start}.steps{padding:15px 12px;position:sticky;top:15px}.steps h3{margin:0 8px 10px;color:var(--muted);font-size:11px;letter-spacing:.08em;text-transform:uppercase}#stepList{display:block}.step{display:flex;gap:10px;align-items:center;padding:8px 10px;border-radius:9px;color:var(--muted);font-size:13px}.step .n{width:24px;height:24px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:700;flex:none}.step.active{background:var(--soft);color:var(--blue2);font-weight:700}.step.active .n{color:white;background:var(--blue);border-color:var(--blue)}.step.done .n{color:var(--green);background:var(--greenbg);border-color:#c9e4d2}.step small{display:block;font-size:11px;color:var(--muted);font-weight:400}.step-panel{min-height:330px}.callout{padding:12px 14px;background:var(--soft);color:#284d6c;border-radius:10px;font-size:13px;margin:12px 0}.field{display:flex;flex-direction:column;gap:6px;margin:13px 0}.field label{font-size:14px;font-weight:700}.field input,.field select,.field textarea{width:100%;padding:11px 12px;border:1px solid #bdcbd6;border-radius:9px;background:var(--surface);color:var(--ink);min-height:46px}.field textarea{min-height:140px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus,button:focus-visible,a:focus-visible{outline:3px solid rgba(39,131,222,.3);outline-offset:2px;border-color:var(--blue)}.hint{font-size:12px;color:var(--muted)}.route-list{display:grid;gap:10px;margin:14px 0}.route{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--line);border-radius:11px;padding:14px;cursor:pointer}.route:has(input:checked){border-color:var(--blue);background:#f6fbff;box-shadow:0 0 0 2px rgba(23,105,170,.09)}.route input{accent-color:var(--blue);width:18px;height:18px;margin:2px 0 0}.route b{display:block}.route span{font-size:13px;color:var(--muted)}.navactions{display:flex;justify-content:space-between;gap:10px;margin-top:22px}.btn{min-height:44px;padding:9px 15px;border-radius:9px;border:1px solid var(--line);background:var(--surface);color:var(--ink);font-weight:700}.btn:hover{background:#f7f9fb}.btn.primary{background:var(--blue);border-color:var(--blue);color:white}.btn.primary:hover{background:var(--blue2)}.btn.danger{color:var(--red);border-color:#e7bdb9}.btn:disabled{opacity:.45;cursor:not-allowed}.formerror{color:var(--red);font-size:13px;min-height:18px;margin-top:4px}.badge{display:inline-flex;gap:6px;align-items:center;padding:4px 9px;border-radius:20px;background:var(--soft);color:var(--blue2);font-size:12px;font-weight:700}.ocrbox{border:1px dashed #9db2c3;background:#fbfdff;border-radius:12px;padding:18px}.ocrstatus{margin:12px 0 0;color:var(--muted);font-size:13px}.matchlist{display:grid;gap:8px;margin-top:14px}.match{display:grid;grid-template-columns:110px 1fr auto;gap:10px;align-items:center;border:1px solid var(--line);border-radius:9px;padding:9px 11px;font-size:13px}.match input{min-width:0;width:100%;min-height:38px;border:1px solid var(--line);border-radius:7px;padding:6px 8px;background:var(--surface);color:var(--ink)}.match-state{font-size:11px;font-weight:800;white-space:nowrap}.match-state.ok{color:var(--green)}.match-state.bad{color:var(--red)}.match-state.unknown{color:var(--amber)}.recordgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:14px 0}.recordbox{border:1px solid var(--line);border-radius:11px;padding:14px}.recordbox h3{font-size:14px;margin:0 0 8px}.kv{display:grid;grid-template-columns:130px 1fr;gap:7px 12px;font-size:13px}.kv span:nth-child(odd){color:var(--muted)}.record{border:1px solid var(--line);border-radius:11px;padding:14px;margin:10px 0}.recordhead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.recordhead strong{display:block}.recordhead small{color:var(--muted)}.record details{margin-top:10px;border-top:1px solid var(--line);padding-top:9px}.record summary{cursor:pointer;color:var(--blue2);font-weight:700;font-size:13px}.empty{padding:24px;text-align:center;color:var(--muted);border:1px dashed var(--line);border-radius:11px}.rowactions{display:flex;gap:8px;flex-wrap:wrap}.profilegrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 16px}.toast{position:fixed;right:20px;bottom:20px;background:#203449;color:white;padding:12px 16px;border-radius:10px;box-shadow:var(--shadow);z-index:5;font-size:14px}.hidden{display:none!important}.mini{font-size:12px;color:var(--muted)}.privacy{margin-top:18px;padding-top:14px;border-top:1px solid var(--line);font-size:12px;color:var(--muted)}.source{color:var(--blue2);text-decoration:underline;text-underline-offset:3px}
-@media(max-width:760px){.topin{padding:11px 16px;flex-wrap:wrap;gap:8px}.brand{flex:1 1 100%}.mark{flex:0 0 38px}.nav{width:100%;display:grid;grid-template-columns:repeat(3,1fr)}.nav button{padding:8px 10px}main{padding:18px 16px 45px}.hero{display:block;padding:23px 0 18px}.hero-side{margin-top:16px;max-width:none}.grid{grid-template-columns:1fr;gap:11px}.steps{position:static;display:block;padding:9px 12px;overflow:hidden}.steps h3,.step small{display:none}#stepList{display:flex;gap:5px;overflow-x:auto}#stepList .step{display:none;flex:0 0 auto;white-space:nowrap;justify-content:center;padding:7px 10px}#stepList .step.active{display:flex}.card{padding:20px 17px}.recordgrid{grid-template-columns:1fr}.subnav{overflow-x:auto}.match{grid-template-columns:95px 1fr}.match-state{grid-column:2}.profilegrid{grid-template-columns:1fr}.kv{grid-template-columns:110px 1fr}}
-@media(max-width:460px){.brand strong{font-size:13px}.brand small{font-size:10px}.mark{width:33px;height:33px}.nav button{padding:8px 9px;font-size:12px}.hero h1{font-size:31px}.warning{font-size:12px;padding:11px 12px}.navactions .btn{flex:1}.recordhead{display:block}.recordhead .badge{margin-top:8px}.kv{grid-template-columns:1fr;gap:2px}.kv span:nth-child(even){margin-bottom:8px}}
-@media(prefers-color-scheme:dark){:root{--ink:#f1f4f7;--muted:#b4c0ca;--blue:#5e9fe8;--blue2:#8fc5ff;--soft:#21384c;--canvas:#171c20;--surface:#20272d;--line:#3b474f;--green:#8bd0a5;--greenbg:#1d392a;--amber:#eac17d;--amberbg:#3c3020;--red:#f28f87;--redbg:#482c2a;--shadow:0 8px 24px rgba(0,0,0,.2)}.warning{color:#f0d5a2;border-color:#665332}.warning strong{color:#ffe3ad}.route:has(input:checked){background:#1b2933}.field input,.field select,.field textarea,.match input{border-color:#52616d}.ocrbox{background:#1c242a}.callout{color:#c1def5}.btn:hover{background:#2c363e}.source{color:#8fc5ff}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Synthetic Student Octopus application and officer review demonstration"
+  />
+  <title>Student Octopus Digital Application Demo</title>
+
+  <style>
+    :root {
+      --navy: #071d3a;
+      --navy-2: #0b2b52;
+      --blue: #1463df;
+      --blue-soft: #eaf2ff;
+      --teal: #008f83;
+      --green: #16834c;
+      --green-soft: #e8f7ef;
+      --amber: #b66a00;
+      --amber-soft: #fff4dd;
+      --red: #bf3030;
+      --red-soft: #ffebeb;
+      --purple: #6e40c9;
+      --purple-soft: #f1eaff;
+      --gray-50: #f8fafc;
+      --gray-100: #edf1f5;
+      --gray-200: #dce3ea;
+      --gray-400: #8c9bad;
+      --gray-600: #526273;
+      --gray-800: #243445;
+      --white: #ffffff;
+      --shadow: 0 16px 42px rgba(5, 29, 58, 0.12);
+      --shadow-sm: 0 7px 20px rgba(5, 29, 58, 0.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      line-height: 1.5;
+    }
+
+    button,
+    input,
+    select,
+    textarea {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .app-shell {
+      min-height: 100vh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 14px 28px;
+      color: var(--white);
+      background: linear-gradient(120deg, var(--navy), var(--navy-2));
+      box-shadow: 0 8px 24px rgba(7, 29, 58, 0.2);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      min-width: 240px;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 13px;
+      background: linear-gradient(145deg, #fff, #b9d9ff);
+      color: var(--navy);
+      font-weight: 900;
+      letter-spacing: -1px;
+      box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.5);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.15;
+    }
+
+    .brand p {
+      margin: 3px 0 0;
+      font-size: 0.75rem;
+      color: #b9cbe0;
+    }
+
+    .topnav {
+      display: flex;
+      gap: 5px;
+      padding: 5px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .topnav button {
+      border: 0;
+      border-radius: 9px;
+      padding: 9px 15px;
+      color: #cfe2fa;
+      background: transparent;
+      font-weight: 750;
+    }
+
+    .topnav button:hover,
+    .topnav button.active {
+      color: var(--navy);
+      background: var(--white);
+    }
+
+    .prototype-tag {
+      padding: 7px 10px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      color: #d9ebff;
+      font-size: 0.73rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    main {
+      width: min(1440px, calc(100% - 36px));
+      margin: 28px auto 80px;
+    }
+
+    .notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      margin-bottom: 22px;
+      padding: 14px 17px;
+      border: 1px solid #ffcaca;
+      border-radius: 13px;
+      background: #fff4f4;
+      color: #7d2929;
+      font-size: 0.9rem;
+    }
+
+    .notice strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 22px;
+      margin-bottom: 24px;
+    }
+
+    .hero-copy,
+    .hero-visual {
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 34px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 80% 20%, rgba(54, 145, 255, 0.35), transparent 30%),
+        linear-gradient(135deg, var(--navy), #103b6e);
+    }
+
+    .hero-copy .eyebrow {
+      display: inline-block;
+      margin-bottom: 10px;
+      color: #a9d1ff;
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .hero-copy h2 {
+      max-width: 780px;
+      margin: 0 0 14px;
+      font-size: clamp(1.8rem, 4vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-copy p {
+      max-width: 750px;
+      margin: 0;
+      color: #d8e9fb;
+      font-size: 1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .hero-visual {
+      display: grid;
+      align-content: center;
+      gap: 12px;
+      padding: 24px;
+      background: var(--white);
+    }
+
+    .principle {
+      padding: 17px;
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      background: var(--gray-50);
+    }
+
+    .principle strong {
+      display: block;
+      color: var(--navy);
+      font-size: 0.94rem;
+    }
+
+    .principle span {
+      color: var(--gray-600);
+      font-size: 0.8rem;
+    }
+
+    .card {
+      margin-bottom: 22px;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 19px 22px;
+      border-bottom: 1px solid var(--gray-200);
+      background: linear-gradient(to bottom, #fff, #fbfcfe);
+    }
+
+    .card-header h2,
+    .card-header h3 {
+      margin: 0;
+      color: var(--navy);
+    }
+
+    .card-header p {
+      margin: 3px 0 0;
+      color: var(--gray-600);
+      font-size: 0.84rem;
+    }
+
+    .card-body {
+      padding: 22px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 27px 0 14px;
+      color: var(--navy);
+      font-size: 1rem;
+    }
+
+    .section-title:first-child {
+      margin-top: 0;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--blue);
+      font-size: 0.76rem;
+      font-weight: 900;
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .grid-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      color: var(--gray-800);
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 1px solid #cbd5df;
+      border-radius: var(--radius-sm);
+      padding: 11px 12px;
+      color: var(--gray-800);
+      background: var(--white);
+      outline: none;
+      transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(20, 99, 223, 0.12);
+    }
+
+    input[readonly] {
+      color: #476375;
+      background: #f2f6fa;
+    }
+
+    textarea {
+      min-height: 92px;
+      resize: vertical;
+    }
+
+    .helper {
+      color: var(--gray-600);
+      font-size: 0.74rem;
+    }
+
+    .required {
+      color: var(--red);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 40px;
+      border: 0;
+      border-radius: 10px;
+      padding: 10px 15px;
+      font-weight: 850;
+      transition:
+        transform 0.16s,
+        filter 0.16s,
+        box-shadow 0.16s;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.02);
+    }
+
+    .btn-primary {
+      color: var(--white);
+      background: var(--blue);
+      box-shadow: 0 7px 17px rgba(20, 99, 223, 0.23);
+    }
+
+    .btn-secondary {
+      color: var(--navy);
+      background: var(--gray-100);
+    }
+
+    .btn-success {
+      color: var(--white);
+      background: var(--green);
+    }
+
+    .btn-warning {
+      color: #6b4000;
+      background: #ffd88b;
+    }
+
+    .btn-danger {
+      color: var(--white);
+      background: var(--red);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--gray-200);
+      color: var(--gray-800);
+      background: var(--white);
+    }
+
+    .btn-small {
+      min-height: 32px;
+      padding: 7px 10px;
+      font-size: 0.75rem;
+    }
+
+    .application-type {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .type-option {
+      position: relative;
+    }
+
+    .type-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .type-option label {
+      display: block;
+      min-height: 112px;
+      padding: 18px;
+      border: 2px solid var(--gray-200);
+      border-radius: 14px;
+      background: var(--white);
+      cursor: pointer;
+    }
+
+    .type-option label strong {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-size: 1rem;
+    }
+
+    .type-option label span {
+      color: var(--gray-600);
+      font-size: 0.8rem;
+    }
+
+    .type-option input:checked + label {
+      border-color: var(--blue);
+      background: var(--blue-soft);
+      box-shadow: 0 0 0 3px rgba(20, 99, 223, 0.1);
+    }
+
+    .upload-zone {
+      padding: 22px;
+      border: 2px dashed #aab9c8;
+      border-radius: 14px;
+      text-align: center;
+      background: #fbfdff;
+    }
+
+    .upload-zone.dragover {
+      border-color: var(--blue);
+      background: var(--blue-soft);
+    }
+
+    .upload-icon {
+      margin-bottom: 7px;
+      font-size: 2rem;
+    }
+
+    .upload-zone input {
+      max-width: 360px;
+      margin: 10px auto 0;
+    }
+
+    .scenario-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px;
+      margin-top: 13px;
+      padding: 12px;
+      border-radius: 11px;
+      background: var(--gray-100);
+    }
+
+    .scenario-bar strong {
+      margin-right: 5px;
+      font-size: 0.78rem;
+    }
+
+    .ocr-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 17px;
+    }
+
+    .ocr-column {
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .ocr-column h4 {
+      margin: 0;
+      padding: 12px 14px;
+      color: var(--navy);
+      background: var(--gray-100);
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      padding: 11px 14px;
+      border-top: 1px solid var(--gray-100);
+    }
+
+    .comparison-row:first-of-type {
+      border-top: 0;
+    }
+
+    .comparison-row strong {
+      display: block;
+      font-size: 0.76rem;
+    }
+
+    .comparison-row span {
+      color: var(--gray-600);
+      font-size: 0.79rem;
+    }
+
+    .confidence {
+      align-self: center;
+      min-width: 52px;
+      padding: 4px 7px;
+      border-radius: 999px;
+      text-align: center;
+      font-size: 0.71rem;
+      font-weight: 900;
+    }
+
+    .confidence.high {
+      color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .confidence.medium {
+      color: var(--amber);
+      background: var(--amber-soft);
+    }
+
+    .confidence.low {
+      color: var(--red);
+      background: var(--red-soft);
+    }
+
+    .status-box {
+      margin-top: 17px;
+      padding: 16px;
+      border-radius: 13px;
+    }
+
+    .status-box.success {
+      border: 1px solid #bde6ca;
+      color: #155f39;
+      background: var(--green-soft);
+    }
+
+    .status-box.warning {
+      border: 1px solid #f1d29a;
+      color: #774900;
+      background: var(--amber-soft);
+    }
+
+    .status-box.danger {
+      border: 1px solid #f2b8b8;
+      color: #852828;
+      background: var(--red-soft);
+    }
+
+    .status-box h4 {
+      margin: 0 0 5px;
+    }
+
+    .status-box p {
+      margin: 0;
+      font-size: 0.84rem;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 8px;
+      margin: 13px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 9px 11px;
+      border: 1px solid var(--gray-200);
+      border-radius: 9px;
+      background: var(--white);
+      font-size: 0.8rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 0.7rem;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .pill-green {
+      color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .pill-amber {
+      color: var(--amber);
+      background: var(--amber-soft);
+    }
+
+    .pill-red {
+      color: var(--red);
+      background: var(--red-soft);
+    }
+
+    .pill-blue {
+      color: var(--blue);
+      background: var(--blue-soft);
+    }
+
+    .pill-purple {
+      color: var(--purple);
+      background: var(--purple-soft);
+    }
+
+    .dashboard-kpis {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .kpi {
+      padding: 18px;
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .kpi span {
+      color: var(--gray-600);
+      font-size: 0.74rem;
+      font-weight: 800;
+    }
+
+    .kpi strong {
+      display: block;
+      margin-top: 4px;
+      color: var(--navy);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .kpi.green {
+      border-top: 4px solid var(--green);
+    }
+
+    .kpi.amber {
+      border-top: 4px solid #e39916;
+    }
+
+    .kpi.red {
+      border-top: 4px solid var(--red);
+    }
+
+    .kpi.blue {
+      border-top: 4px solid var(--blue);
+    }
+
+    .kpi.purple {
+      border-top: 4px solid var(--purple);
+    }
+
+    .table-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--gray-200);
+      border-radius: 9px;
+      padding: 8px 11px;
+      color: var(--gray-600);
+      background: var(--white);
+      font-size: 0.75rem;
+      font-weight: 850;
+    }
+
+    .filter-btn.active {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--blue-soft);
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border: 1px solid var(--gray-200);
+      border-radius: 13px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1050px;
+    }
+
+    th {
+      padding: 12px;
+      color: #425365;
+      background: var(--gray-100);
+      text-align: left;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    td {
+      padding: 12px;
+      border-top: 1px solid var(--gray-200);
+      font-size: 0.78rem;
+      vertical-align: middle;
+    }
+
+    tbody tr:hover {
+      background: #fbfdff;
+    }
+
+    .review-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(330px, 0.55fr);
+      gap: 20px;
+    }
+
+    .review-section {
+      margin-bottom: 18px;
+      border: 1px solid var(--gray-200);
+      border-radius: 13px;
+      overflow: hidden;
+    }
+
+    .review-section h4 {
+      margin: 0;
+      padding: 11px 14px;
+      color: var(--navy);
+      background: var(--gray-100);
+    }
+
+    .review-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .review-item {
+      padding: 12px 14px;
+      border-top: 1px solid var(--gray-100);
+    }
+
+    .review-item:nth-child(odd) {
+      border-right: 1px solid var(--gray-100);
+    }
+
+    .review-item small {
+      display: block;
+      color: var(--gray-600);
+      font-weight: 750;
+    }
+
+    .review-item strong {
+      display: block;
+      margin-top: 3px;
+      color: var(--navy);
+      word-break: break-word;
+    }
+
+    .decision-card {
+      position: sticky;
+      top: 90px;
+      align-self: start;
+      padding: 20px;
+      border: 1px solid var(--gray-200);
+      border-radius: 15px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .queue-banner {
+      margin-bottom: 14px;
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 900;
+    }
+
+    .queue-Green {
+      color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .queue-Amber {
+      color: var(--amber);
+      background: var(--amber-soft);
+    }
+
+    .queue-Red {
+      color: var(--red);
+      background: var(--red-soft);
+    }
+
+    .decision-card h3 {
+      margin: 0 0 8px;
+      color: var(--navy);
+    }
+
+    .decision-card p {
+      margin: 0 0 14px;
+      color: var(--gray-600);
+      font-size: 0.82rem;
+    }
+
+    .decision-actions {
+      display: grid;
+      gap: 9px;
+    }
+
+    .audit-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .audit-list li {
+      position: relative;
+      margin-left: 7px;
+      padding: 0 0 17px 24px;
+      border-left: 2px solid var(--gray-200);
+    }
+
+    .audit-list li:last-child {
+      border-left-color: transparent;
+      padding-bottom: 0;
+    }
+
+    .audit-list li::before {
+      content: "";
+      position: absolute;
+      top: 2px;
+      left: -6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .audit-list strong {
+      display: block;
+      font-size: 0.78rem;
+    }
+
+    .audit-list span {
+      color: var(--gray-600);
+      font-size: 0.72rem;
+    }
+
+    .empty-state {
+      padding: 38px;
+      color: var(--gray-600);
+      text-align: center;
+    }
+
+    .success-screen {
+      text-align: center;
+      padding: 34px;
+    }
+
+    .success-icon {
+      display: grid;
+      place-items: center;
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      color: var(--white);
+      background: var(--green);
+      font-size: 2rem;
+    }
+
+    .success-screen h2 {
+      margin: 0 0 6px;
+      color: var(--navy);
+    }
+
+    .reference-number {
+      display: inline-block;
+      margin: 15px 0;
+      padding: 11px 16px;
+      border-radius: 10px;
+      color: var(--blue);
+      background: var(--blue-soft);
+      font-size: 1.05rem;
+      font-weight: 900;
+    }
+
+    .chat-launcher {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 60;
+      width: 58px;
+      height: 58px;
+      border: 0;
+      border-radius: 50%;
+      color: var(--white);
+      background: linear-gradient(145deg, var(--blue), #3b83f0);
+      font-size: 1.4rem;
+      box-shadow: 0 15px 30px rgba(20, 99, 223, 0.35);
+    }
+
+    .chat-panel {
+      position: fixed;
+      right: 24px;
+      bottom: 92px;
+      z-index: 60;
+      display: flex;
+      flex-direction: column;
+      width: min(380px, calc(100vw - 32px));
+      height: 520px;
+      border: 1px solid var(--gray-200);
+      border-radius: 17px;
+      background: var(--white);
+      box-shadow: 0 24px 60px rgba(7, 29, 58, 0.24);
+      overflow: hidden;
+    }
+
+    .chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      color: var(--white);
+      background: linear-gradient(130deg, var(--navy), var(--blue));
+    }
+
+    .chat-header strong {
+      display: block;
+    }
+
+    .chat-header span {
+      color: #d7e9ff;
+      font-size: 0.7rem;
+    }
+
+    .chat-close {
+      border: 0;
+      color: var(--white);
+      background: transparent;
+      font-size: 1.2rem;
+    }
+
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px;
+      background: #f7faff;
+    }
+
+    .message {
+      max-width: 86%;
+      margin-bottom: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-size: 0.79rem;
+    }
+
+    .message.bot {
+      border-bottom-left-radius: 4px;
+      color: var(--gray-800);
+      background: var(--white);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .message.user {
+      margin-left: auto;
+      border-bottom-right-radius: 4px;
+      color: var(--white);
+      background: var(--blue);
+    }
+
+    .chat-input {
+      display: flex;
+      gap: 8px;
+      padding: 12px;
+      border-top: 1px solid var(--gray-200);
+      background: var(--white);
+    }
+
+    .chat-input input {
+      flex: 1;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(3, 18, 35, 0.65);
+    }
+
+    .modal {
+      width: min(560px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 18px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .modal-header h3 {
+      margin: 0;
+      color: var(--navy);
+    }
+
+    .modal-body {
+      padding: 20px;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 9px;
+      padding: 16px 20px;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .footer {
+      padding: 28px;
+      color: var(--gray-600);
+      text-align: center;
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 1050px) {
+      .hero,
+      .review-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .dashboard-kpis {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .decision-card {
+        position: static;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .topbar {
+        position: relative;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 16px;
+      }
+
+      .topnav {
+        overflow-x: auto;
+      }
+
+      .prototype-tag {
+        align-self: flex-start;
+      }
+
+      main {
+        width: min(100% - 22px, 1440px);
+        margin-top: 17px;
+      }
+
+      .hero-copy {
+        padding: 24px;
+      }
+
+      .grid-2,
+      .grid-3,
+      .grid-4,
+      .ocr-panel,
+      .application-type,
+      .review-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .review-item:nth-child(odd) {
+        border-right: 0;
+      }
+
+      .dashboard-kpis {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .dashboard-kpis {
+        grid-template-columns: 1fr;
+      }
+
+      .card-body,
+      .card-header {
+        padding: 16px;
+      }
+
+      .hero-copy h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="top"><div class="topin"><a href="#" class="brand" onclick="showView('apply');return false"><span class="mark">ST</span><span><strong>Student Travel Scheme</strong><small>Application & records · concept demo</small></span></a><nav class="nav" aria-label="Main navigation"><button id="navApply" aria-current="page" onclick="showView('apply')">Application</button><button id="navRecords" aria-current="false" onclick="showView('records')">Records</button><button id="navProfile" aria-current="false" onclick="showView('profile')">Profile</button></nav></div></header>
-<main>
-<div class="warning" role="note"><span aria-hidden="true">ⓘ</span><div><strong>Demo only — do not enter real student information or upload real identity documents.</strong> The field list is illustrative. Profiles and application records are saved in this browser only; they are not secure, backed up, or shared between devices.</div></div>
-<div class="hero"><div><div class="eyebrow">Returning applicants, without starting over</div><h1>A profile you can reuse.<br>Applications you can track.</h1><p>First-time applicants enter details step by step. On the next application, the saved profile is prefilled so they can review it and update changed details.</p></div><aside class="hero-side"><strong>How this demo stores records</strong>Submitted applications are kept in this browser’s local storage. Uploaded document images are processed for OCR in-browser and are not saved as files.</aside></div>
-<div class="subnav"><button class="active" data-sub="apply" onclick="showView('apply')">Start / continue</button><button data-sub="records" onclick="showView('records')">Application history</button><button data-sub="profile" onclick="showView('profile')">Edit saved profile</button></div>
-<section id="viewApply">
-<div class="grid"><aside class="card steps"><h3>Application steps</h3><div id="stepList"></div></aside><section class="card step-panel"><div id="wizardContent"></div></section></div>
-<div class="privacy">This is an independent UX concept, not an official MTR service. Current scheme requirements and application routes should be confirmed with <a class="source" href="https://www.mtr.com.hk/en/customer/tickets/student_travel_scheme_Important_Note.html" target="_blank" rel="noopener">MTR’s official information</a>.</div>
-</section>
-<section id="viewRecords" class="hidden"><div class="card"><div class="recordhead"><div><h2>Application records</h2><p class="lead">Each demo submission is saved as a separate snapshot, so later profile edits do not change earlier records.</p></div><div class="rowactions"><button class="btn" onclick="exportData()">Export JSON</button><button class="btn danger" onclick="clearData()">Clear demo data</button></div></div><div id="recordsList"></div></div></section>
-<section id="viewProfile" class="hidden"><div class="card"><h2>Saved student profile</h2><p class="lead">These details will be prefilled next time. Changes saved here update the reusable profile, not earlier application records.</p><div id="profileForm"></div></div></section>
-<div id="toast" class="toast hidden" role="status"></div>
-</main>
-<script>
-const STORE_KEY='studentTravelRecordsDemoV2';
-const fields=[
- {key:'studentName',label:'Student name (English)',type:'text',required:true,ocr:true,placeholder:'Name as shown on school record'},
- {key:'studentNameChinese',label:'Student name (Chinese)',type:'text',required:false,placeholder:'中文姓名 (optional)'},
- {key:'dateOfBirth',label:'Date of birth',type:'date',required:true,placeholder:''},
- {key:'email',label:'Email address',type:'email',required:true,placeholder:'name@example.com'},
- {key:'phone',label:'Contact phone',type:'tel',required:true,placeholder:'e.g. 9123 4567'},
- {key:'school',label:'School / institution',type:'text',required:true,ocr:true,placeholder:'School name'},
- {key:'className',label:'Class / form',type:'text',required:true,ocr:true,placeholder:'e.g. Form 4A'},
- {key:'studentId',label:'Student ID / number',type:'text',required:true,ocr:true,placeholder:'School-issued student number'}
-];
-const ocrFields=[{key:'studentName',label:'Student name'},{key:'school',label:'School'},{key:'className',label:'Class / form'},{key:'studentId',label:'Student ID'}];
-let db=loadDb(),step=0,wizard={},selectedFile=null,ocrBusy=false,toastTimer;
-function loadDb(){try{return JSON.parse(localStorage.getItem(STORE_KEY))||{profile:null,applications:[]}}catch(e){return{profile:null,applications:[]}}}
-function persist(){localStorage.setItem(STORE_KEY,JSON.stringify(db))}
-function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function notify(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.remove('hidden');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.add('hidden'),2800)}
-function showView(v){document.getElementById('viewApply').classList.toggle('hidden',v!=='apply');document.getElementById('viewRecords').classList.toggle('hidden',v!=='records');document.getElementById('viewProfile').classList.toggle('hidden',v!=='profile');document.querySelectorAll('.nav button').forEach(b=>b.setAttribute('aria-current',b.id==='nav'+v[0].toUpperCase()+v.slice(1)?'page':'false'));document.querySelectorAll('[data-sub]').forEach(b=>b.classList.toggle('active',b.dataset.sub===v));if(v==='records')renderRecords();if(v==='profile')renderProfile();window.scrollTo({top:0,behavior:'smooth'})}
-function routeLabels(){return[{value:'New 1 — need a personalised Octopus with photo',desc:'For a first-time applicant who needs to obtain a photo Octopus.'},{value:'New 2 — already have a personalised Octopus with photo',desc:'For a first-time scheme application using an existing photo Octopus.'},{value:'Renewal',desc:'Renew student status on an existing personalised Octopus.'}]}
-function startApplication(){wizard={...(db.profile||{}),applicationType:'',ocrText:'',ocrExtracted:{},docName:'',docType:'School identity / enrolment proof'};selectedFile=null;step=0;showView('apply');renderWizard()}
-function setStepList(){const labels=['Application type',...fields.map(f=>f.label),'Document OCR','Review & submit'];document.getElementById('stepList').innerHTML=labels.map((label,i)=>`<div class="step ${i===step?'active':''} ${i<step?'done':''}"><span class="n">${i<step?'✓':i+1}</span><span>${esc(label)}${i===step&&db.profile?'<small>Profile prefilled</small>':''}</span></div>`).join('')}
-function renderWizard(){setStepList();const box=document.getElementById('wizardContent');const returning=!!db.profile;let html='';
-if(step===0){html=`<h2>Choose the application route</h2><p class="lead">Start by selecting the route that matches the student’s Octopus situation.</p><div class="route-list">${routeLabels().map((r,i)=>`<label class="route"><input type="radio" name="applicationType" value="${esc(r.value)}" ${wizard.applicationType===r.value?'checked':''}><span><b>${esc(r.value)}</b>${esc(r.desc)}</span></label>`).join('')}</div><div id="formError" class="formerror"></div><div class="navactions"><span></span><button class="btn primary" onclick="nextStep()">Continue →</button></div>`}
-else if(step>=1&&step<=fields.length){const f=fields[step-1];const progress=step+' of '+fields.length;html=`${returning?'<div class="callout"><strong>Welcome back.</strong> We prefilled this from the saved profile. Review it and change it if needed; updates will apply to this application and your profile when you submit.</div>':''}<div class="badge">Student profile · ${progress}</div><h2 style="margin-top:12px">${esc(f.label)}</h2><p class="lead">${f.required?'Required for this demo application.':'Optional profile detail.'} Enter the information exactly as it appears on the student’s records.</p><div class="field"><label for="currentField">${esc(f.label)}${f.required?' *':''}</label><input id="currentField" type="${f.type}" value="${esc(wizard[f.key]||'')}" placeholder="${esc(f.placeholder)}" ${f.required?'required':''}><span class="hint">${f.key==='email'?'Used for application updates in a real service.':f.key==='phone'?'Use a number the student or guardian can access.':f.ocr?'This field can be compared with the uploaded student proof.':''}</span></div><div id="formError" class="formerror"></div><div class="navactions"><button class="btn" onclick="prevStep()">← Back</button><button class="btn primary" onclick="saveFieldAndNext()">${step===fields.length?'Continue to proof':'Next field →'}</button></div>`}
-else if(step===fields.length+1){html=`<h2>Scan student proof</h2><p class="lead">Choose a clear photo of a school ID or enrolment document. The demo runs OCR in this browser and checks extracted text against the profile.</p><div class="callout"><strong>Privacy:</strong> Use a dummy/sample document only. The image stays in this browser and is not saved; OCR code and language data load from a CDN. OCR is text matching, not proof that a document is genuine; a real service needs human review.</div><div class="field"><label for="docType">Document type</label><select id="docType">${['School identity / enrolment proof','Student card','Other supporting document'].map(x=>`<option ${wizard.docType===x?'selected':''}>${x}</option>`).join('')}</select></div><div class="ocrbox"><div class="field"><label for="docFile">Select a clear image (JPG, PNG, WEBP)</label><input id="docFile" type="file" accept="image/png,image/jpeg,image/webp"><span class="hint">One page, good lighting, all text visible. The demo OCR language is English + Traditional Chinese.</span></div><div id="fileLabel" class="mini">${wizard.docName?'Selected: '+esc(wizard.docName):'No image selected yet.'}</div><div class="rowactions" style="margin-top:12px"><button id="ocrButton" class="btn primary" onclick="runOCR()" ${ocrBusy?'disabled':''}>${ocrBusy?'Reading document…':'Run OCR & compare'}</button><button class="btn" onclick="parseCurrentText()">Extract from text</button></div><div id="ocrStatus" class="ocrstatus">${esc(wizard.ocrStatus||'OCR will try to read printed text. You can edit extracted fields if recognition is imperfect.')}</div></div>${wizard.ocrExtracted&&Object.keys(wizard.ocrExtracted).length?renderMatches():''}<div class="field"><label for="ocrText">Recognised text (editable)</label><textarea id="ocrText" placeholder="OCR text will appear here. You can paste sample text such as: Name: Alex Chan&#10;School: Example Secondary School&#10;Class: Form 4A&#10;Student ID: DEMO-001">${esc(wizard.ocrText||'')}</textarea><span class="hint">You can correct OCR text then select “Extract from text” to compare again.</span></div><div id="formError" class="formerror"></div><div class="navactions"><button class="btn" onclick="prevStep()">← Back</button><button class="btn primary" onclick="saveOcrAndNext()">Continue to review →</button></div>`}
-else{html=renderReview()}
-box.innerHTML=html;wireStepControls()}
-function wireStepControls(){const f=fields[step-1];if(f&&step>=1&&step<=fields.length){const input=document.getElementById('currentField');input?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();saveFieldAndNext()}})}if(step===fields.length+1){const file=document.getElementById('docFile');file?.addEventListener('change',e=>{selectedFile=e.target.files[0]||null;wizard.docName=selectedFile?.name||'';document.getElementById('fileLabel').textContent=selectedFile?'Selected: '+selectedFile.name:'No image selected yet.'});document.getElementById('ocrText')?.addEventListener('input',e=>wizard.ocrText=e.target.value);document.getElementById('docType')?.addEventListener('change',e=>wizard.docType=e.target.value)}}
-function nextStep(){if(step===0){const selected=document.querySelector('input[name="applicationType"]:checked');if(!selected){document.getElementById('formError').textContent='Choose an application route to continue.';return}wizard.applicationType=selected.value}step++;renderWizard();document.getElementById('wizardContent').scrollIntoView({behavior:'smooth',block:'start'})}
-function saveFieldAndNext(){const f=fields[step-1],input=document.getElementById('currentField'),val=input.value.trim();if(f.required&&!val){document.getElementById('formError').textContent='Please enter this detail before continuing.';input.focus();return}wizard[f.key]=val;nextStep()}
-function prevStep(){if(step>0){step--;renderWizard();document.getElementById('wizardContent').scrollIntoView({behavior:'smooth',block:'start'})}}
-function saveOcrAndNext(){wizard.ocrText=document.getElementById('ocrText')?.value||wizard.ocrText||'';wizard.docType=document.getElementById('docType')?.value||wizard.docType||'';step++;renderWizard();document.getElementById('wizardContent').scrollIntoView({behavior:'smooth',block:'start'})}
-function norm(s){return String(s||'').toLocaleLowerCase().normalize('NFKC').replace(/[\s\p{P}\p{S}]/gu,'')}
-function parseLabels(text){const lines=String(text||'').split(/\r?\n/).map(x=>x.trim()).filter(Boolean);const patterns={studentName:/^(?:student\s*)?name\s*[:：\-]?\s*(.+)$/i,school:/^(?:school|institution)\s*[:：\-]?\s*(.+)$/i,className:/^(?:class|form|grade)\s*[:：\-]?\s*(.+)$/i,studentId:/^(?:student\s*(?:id|no\.?|number)|id\s*(?:no\.?|number)?)\s*[:：\-]?\s*(.+)$/i};const out={};for(const [key,re] of Object.entries(patterns)){for(let i=0;i<lines.length;i++){const m=lines[i].match(re);if(m&&m[1]?.trim()){out[key]=m[1].trim();break}if(re.test(lines[i])&&i+1<lines.length){out[key]=lines[i+1];break}}}return out}
-function parseCurrentText(){wizard.ocrText=document.getElementById('ocrText').value;wizard.ocrExtracted=parseLabels(wizard.ocrText);wizard.ocrStatus='Extracted labelled fields from text. Review every value and fix OCR errors.';renderWizard()}
-async function loadOcrLibrary(){if(window.Tesseract)return;await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js';s.onload=resolve;s.onerror=()=>reject(new Error('OCR library could not load. Connect to the internet or use “Extract from text”.'));document.head.appendChild(s)})}
-async function runOCR(){if(!selectedFile){wizard.ocrStatus='Choose an image first. You can also paste sample OCR text below.';renderWizard();return}ocrBusy=true;wizard.docName=selectedFile.name;wizard.docType=document.getElementById('docType').value;wizard.ocrStatus='Loading browser OCR…';renderWizard();let worker=null;try{await loadOcrLibrary();worker=await window.Tesseract.createWorker(['eng','chi_tra'],1,{logger:m=>{if(m.status==='recognizing text'){wizard.ocrStatus='Reading text… '+Math.round((m.progress||0)*100)+'%';const st=document.getElementById('ocrStatus');if(st)st.textContent=wizard.ocrStatus}}});const result=await worker.recognize(selectedFile);wizard.ocrText=result.data.text||'';wizard.ocrExtracted=parseLabels(wizard.ocrText);wizard.ocrStatus='OCR finished. Compare each detected value below; recognition may be wrong.'}catch(e){wizard.ocrStatus=e.message||'OCR could not run. Paste sample text below and extract manually.'}finally{if(worker){try{await worker.terminate()}catch(_){}}ocrBusy=false;renderWizard()}}
-function renderMatches(){return `<h3 style="font-size:16px;margin:19px 0 5px">Compare extracted details</h3><p class="hint">OCR reads text only. It cannot confirm document authenticity.</p><div class="matchlist">${ocrFields.map(f=>{const got=wizard.ocrExtracted?.[f.key]||'';const expected=wizard[f.key]||'';const status=!got?'Not found':norm(got)===norm(expected)?'Match':'Review needed';const cls=!got?'unknown':status==='Match'?'ok':'bad';return `<div class="match"><strong>${esc(f.label)}</strong><input aria-label="OCR value for ${esc(f.label)}" data-ocr-key="${f.key}" value="${esc(got)}" placeholder="Not detected"><span class="match-state ${cls}">${esc(status)}</span></div>`}).join('')}</div>`}
-function renderReview(){const statusHtml=ocrFields.map(f=>{const got=wizard.ocrExtracted?.[f.key]||'';const status=!got?'Not found':norm(got)===norm(wizard[f.key])?'Match':'Review needed';return `<span>${esc(f.label)}</span><strong>${esc(got||'Not detected')} · ${esc(status)}</strong>`}).join('');return `<h2>Review application</h2><p class="lead">Check the student profile and OCR comparison. Submitting saves a record in this browser.</p><div class="recordgrid"><div class="recordbox"><h3>Application</h3><div class="kv"><span>Route</span><strong>${esc(wizard.applicationType)}</strong><span>Document</span><strong>${esc(wizard.docName||'Not supplied')}</strong></div></div><div class="recordbox"><h3>OCR comparison</h3><div class="kv">${statusHtml}</div></div></div><div class="recordbox"><h3>Student profile snapshot</h3><div class="kv">${fields.map(f=>`<span>${esc(f.label)}</span><strong>${esc(wizard[f.key]||'Not provided')}</strong>`).join('')}</div></div><div class="callout" style="margin-top:14px">Any edits made during this application will update the saved profile when you submit. Earlier application snapshots remain unchanged.</div><label class="route" style="margin-top:12px"><input type="checkbox" id="reviewAck"><span><b>I reviewed the details.</b> OCR may be inaccurate and does not establish that a document is genuine.</span></label><div id="formError" class="formerror"></div><div class="navactions"><button class="btn" onclick="prevStep()">← Back</button><button class="btn primary" onclick="submitApplication()">Save application record</button></div>`}
-document.addEventListener('input',e=>{const k=e.target?.dataset?.ocrKey;if(k){wizard.ocrExtracted[k]=e.target.value;const row=e.target.closest('.match');const state=row.querySelector('.match-state');const ok=norm(e.target.value)===norm(wizard[k]);state.textContent=e.target.value.trim()?(ok?'Match':'Review needed'):'Not found';state.className='match-state '+(e.target.value.trim()?(ok?'ok':'bad'):'unknown')}})
-function submitApplication(){if(!document.getElementById('reviewAck').checked){document.getElementById('formError').textContent='Please confirm you reviewed the details and OCR limitations.';return}const stamp=new Date().toISOString();const record={id:'DEMO-'+new Date().toISOString().replace(/[-:TZ.]/g,'').slice(0,14)+'-'+Math.random().toString(36).slice(2,6).toUpperCase(),submittedAt:stamp,status:'Demo record saved locally',applicationType:wizard.applicationType,profile:Object.fromEntries(fields.map(f=>[f.key,wizard[f.key]||''])),document:{type:wizard.docType||'',fileName:wizard.docName||'',ocrFields:{...(wizard.ocrExtracted||{})},ocrStatus:wizard.ocrStatus||'Not run'}};db.profile=record.profile;db.applications=[record,...(db.applications||[])];persist();notify('Application record saved in this browser.');renderRecords();showView('records')}
-function renderRecords(){db=loadDb();const target=document.getElementById('recordsList');if(!db.applications?.length){target.innerHTML='<div class="empty"><h3>No application records yet</h3><p>Complete a demo application to save the first record.</p><button class="btn primary" onclick="startApplication()">Start an application</button></div>';return}target.innerHTML=db.applications.map(a=>`<article class="record"><div class="recordhead"><div><strong>${esc(a.applicationType)}</strong><small>${new Date(a.submittedAt).toLocaleString()} · ${esc(a.id)}</small></div><span class="badge">${esc(a.status)}</span></div><details><summary>View saved snapshot and OCR</summary><div class="recordgrid"><div class="recordbox"><h3>Student details</h3><div class="kv">${fields.map(f=>`<span>${esc(f.label)}</span><strong>${esc(a.profile?.[f.key]||'Not provided')}</strong>`).join('')}</div></div><div class="recordbox"><h3>Document / OCR record</h3><div class="kv"><span>File name</span><strong>${esc(a.document?.fileName||'No file')}</strong><span>Document type</span><strong>${esc(a.document?.type||'Not specified')}</strong>${ocrFields.map(f=>`<span>${esc(f.label)} OCR</span><strong>${esc(a.document?.ocrFields?.[f.key]||'Not detected')}</strong>`).join('')}</div></div></div></details></article>`).join('')+`<div class="navactions"><button class="btn primary" onclick="startApplication()">Start another application (profile prefilled)</button></div>`}
-function renderProfile(){db=loadDb();const target=document.getElementById('profileForm');if(!db.profile){target.innerHTML='<div class="empty"><p>No saved profile yet. Your first application will create one.</p><button class="btn primary" onclick="startApplication()">Start first application</button></div>';return}target.innerHTML=`<div class="callout">Profile changes are saved in this browser and will be prefilled next time. Existing application records keep their original snapshots.</div><div class="profilegrid">${fields.map(f=>`<div class="field"><label for="p_${f.key}">${esc(f.label)}${f.required?' *':''}</label><input id="p_${f.key}" type="${f.type}" value="${esc(db.profile[f.key]||'')}" ${f.required?'required':''}></div>`).join('')}</div><div id="profileError" class="formerror"></div><div class="navactions"><button class="btn" onclick="startApplication()">Start application</button><button class="btn primary" onclick="saveProfile()">Save profile</button></div>`}
-function saveProfile(){const p={...(db.profile||{})};for(const f of fields){const el=document.getElementById('p_'+f.key);p[f.key]=el.value.trim();if(f.required&&!p[f.key]){document.getElementById('profileError').textContent='Please complete '+f.label+'.';el.focus();return}}db.profile=p;persist();notify('Profile updated.');renderProfile()}
-function exportData(){db=loadDb();const blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='student-travel-demo-records.json';a.click();URL.revokeObjectURL(url)}
-function clearData(){if(!confirm('Delete all demo profiles and application records from this browser?'))return;localStorage.removeItem(STORE_KEY);db={profile:null,applications:[]};notify('Demo records cleared.');renderRecords()}
-function init(){renderWizard();renderRecords()}init();
-</script>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">SO</div>
+        <div>
+          <h1>Student Octopus Digital Demo</h1>
+          <p>Synthetic application and officer workflow</p>
+        </div>
+      </div>
+
+      <nav class="topnav" aria-label="Main navigation">
+        <button id="navHome" class="active" onclick="showView('home')">Overview</button>
+        <button id="navApplicant" onclick="showView('applicant')">Applicant Portal</button>
+        <button id="navOfficer" onclick="showView('officer')">Officer Portal</button>
+      </nav>
+
+      <div class="prototype-tag">SYNTHETIC PROTOTYPE</div>
+    </header>
+
+    <main>
+      <div class="notice">
+        <div>⚠️</div>
+        <div>
+          <strong>Demonstration only</strong>
+          This website uses synthetic data. Do not upload real HKID information,
+          student documents, application details, or organisational data.
+        </div>
+      </div>
+
+      <section id="homeView">
+        <div class="hero">
+          <div class="hero-copy">
+            <span class="eyebrow">Process improvement demonstration</span>
+            <h2>Cleaner applications. Faster reviews. Human-controlled decisions.</h2>
+            <p>
+              This interactive prototype demonstrates how front-end validation,
+              OCR-assisted comparison, historical-data reuse, rules-based routing,
+              and one consolidated officer screen could reduce repetitive work.
+            </p>
+
+            <div class="hero-actions">
+              <button class="btn btn-primary" onclick="showView('applicant')">
+                Start Synthetic Application
+              </button>
+              <button class="btn btn-outline" onclick="showView('officer')">
+                Open Officer Dashboard
+              </button>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <div class="principle">
+              <strong>1. Capture once</strong>
+              <span>Application and OCR information enter one structured record.</span>
+            </div>
+            <div class="principle">
+              <strong>2. Validate automatically</strong>
+              <span>Reference, history, confidence, and mismatch checks run immediately.</span>
+            </div>
+            <div class="principle">
+              <strong>3. Route by exception</strong>
+              <span>Green, Amber, and Red queues focus effort according to complexity.</span>
+            </div>
+            <div class="principle">
+              <strong>4. Preserve human authority</strong>
+              <span>Authorised officers retain control over final decisions.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-3">
+          <article class="card">
+            <div class="card-body">
+              <span class="pill pill-blue">Applicant side</span>
+              <h3>Prevent avoidable errors</h3>
+              <p>
+                Searchable institution data, document-quality guidance, simulated OCR,
+                historical prefill, and field-specific assistance.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <span class="pill pill-purple">Rules and routing</span>
+              <h3>Prepare the case automatically</h3>
+              <p>
+                Applications are checked and placed into Green, Amber, or Red queues
+                with reason codes and required actions.
+              </p>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-body">
+              <span class="pill pill-green">Officer side</span>
+              <h3>Review everything in one place</h3>
+              <p>
+                Applicant entries, OCR results, history, validation checks, decisions,
+                timestamps, and audit records appear together.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="applicantView" class="hidden">
+        <div id="applicationFormContainer">
+          <form id="applicationForm" class="card" onsubmit="submitApplication(event)">
+            <div class="card-header">
+              <div>
+                <h2>Synthetic Student Application</h2>
+                <p>Complete the steps below to demonstrate front-end validation.</p>
+              </div>
+              <button type="button" class="btn btn-secondary btn-small" onclick="resetForm()">
+                Reset
+              </button>
+            </div>
+
+            <div class="card-body">
+              <h3 class="section-title">
+                <span class="step-number">1</span>
+                Application type
+              </h3>
+
+              <div class="application-type">
+                <div class="type-option">
+                  <input
+                    type="radio"
+                    id="typeNew"
+                    name="applicationType"
+                    value="New"
+                    checked
+                    onchange="handleApplicationType()"
+                  />
+                  <label for="typeNew">
+                    <strong>New Application</strong>
+                    <span>Create a new synthetic applicant record and provide all details.</span>
+                  </label>
+                </div>
+
+                <div class="type-option">
+                  <input
+                    type="radio"
+                    id="typeRenewal"
+                    name="applicationType"
+                    value="Renewal"
+                    onchange="handleApplicationType()"
+                  />
+                  <label for="typeRenewal">
+                    <strong>Renewal</strong>
+                    <span>Reuse a previous synthetic record and report changes only.</span>
+                  </label>
+                </div>
+              </div>
+
+              <div id="renewalPanel" class="status-box success hidden">
+                <h4>Previous synthetic record found</h4>
+                <p>
+                  Select a previous applicant to demonstrate prefilled renewal information.
+                </p>
+                <div class="grid grid-2" style="margin-top: 13px;">
+                  <div class="field">
+                    <label for="renewalProfile">Previous applicant</label>
+                    <select id="renewalProfile" onchange="loadRenewalProfile()">
+                      <option value="">Select a synthetic profile</option>
+                      <option value="STU-0001">TEST STUDENT A — Local Secondary</option>
+                      <option value="STU-0002">TEST STUDENT B — International School</option>
+                      <option value="STU-0003">TEST STUDENT C — University</option>
+                    </select>
+                  </div>
+
+                  <div class="field">
+                    <label for="changeDeclaration">What changed?</label>
+                    <select id="changeDeclaration">
+                      <option value="No changes">All information remains correct</option>
+                      <option value="Institution changed">Institution changed</option>
+                      <option value="Programme changed">Programme changed</option>
+                      <option value="Repeated level">Repeated the same study level</option>
+                      <option value="Study mode changed">Study mode changed</option>
+                      <option value="Other">Other change</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <h3 class="section-title">
+                <span class="step-number">2</span>
+                Synthetic applicant information
+              </h3>
+
+              <div class="grid grid-3">
+                <div class="field">
+                  <label for="studentName">
+                    Synthetic student name <span class="required">*</span>
+                  </label>
+                  <input
+                    id="studentName"
+                    required
+                    value="TEST STUDENT D"
+                    placeholder="Use synthetic data only"
+                  />
+                </div>
+
+                <div class="field">
+                  <label for="applicantReference">Synthetic applicant reference</label>
+                  <input id="applicantReference" value="STU-DEMO-1004" readonly />
+                </div>
+
+                <div class="field">
+                  <label for="email">Synthetic contact email</label>
+                  <input
+                    id="email"
+                    type="email"
+                    value="test.student@example.invalid"
+                    required
+                  />
+                </div>
+              </div>
+
+              <h3 class="section-title">
+                <span class="step-number">3</span>
+                Institution and programme
+              </h3>
+
+              <div class="grid grid-3">
+                <div class="field">
+                  <label for="institutionType">
+                    Institution type <span class="required">*</span>
+                  </label>
+                  <select
+                    id="institutionType"
+                    required
+                    onchange="populateInstitutions(); populateStudyLevels();"
+                  >
+                    <option value="Local Secondary">Local Secondary School</option>
+                    <option value="International School">International School</option>
+                    <option value="Vocational">Vocational Institution</option>
+                    <option value="College">College</option>
+                    <option value="University">University</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="institutionSearch">
+                    Search institution
+                  </label>
+                  <input
+                    id="institutionSearch"
+                    placeholder="Search name, code, branch, or address"
+                    oninput="populateInstitutions()"
+                  />
+                  <span class="helper">
+                    Use the search box to filter the synthetic reference list.
+                  </span>
+                </div>
+
+                <div class="field">
+                  <label for="institution">
+                    Institution <span class="required">*</span>
+                  </label>
+                  <select
+                    id="institution"
+                    required
+                    onchange="applyInstitution(); populateProgrammes();"
+                  ></select>
+                </div>
+
+                <div class="field">
+                  <label for="institutionCode">Institution code</label>
+                  <input id="institutionCode" readonly />
+                </div>
+
+                <div class="field">
+                  <label for="institutionBranch">Branch or campus</label>
+                  <input id="institutionBranch" readonly />
+                </div>
+
+                <div class="field">
+                  <label for="institutionAddress">Institution address</label>
+                  <input id="institutionAddress" readonly />
+                </div>
+
+                <div class="field">
+                  <label for="programme">
+                    Programme <span class="required">*</span>
+                  </label>
+                  <select id="programme" required></select>
+                </div>
+
+                <div class="field">
+                  <label for="currentLevel">
+                    Current study level <span class="required">*</span>
+                  </label>
+                  <select id="currentLevel" required></select>
+                </div>
+
+                <div class="field">
+                  <label for="studyMode">
+                    Study mode <span class="required">*</span>
+                  </label>
+                  <select id="studyMode" required>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Unknown">Not shown or unclear</option>
+                  </select>
+                </div>
+              </div>
+
+              <h3 class="section-title">
+                <span class="step-number">4</span>
+                Synthetic student document
+              </h3>
+
+              <div
+                id="uploadZone"
+                class="upload-zone"
+                ondragover="handleDragOver(event)"
+                ondragleave="handleDragLeave(event)"
+                ondrop="handleDrop(event)"
+              >
+                <div class="upload-icon">📄</div>
+                <strong>Upload a synthetic student ID or supporting document</strong>
+                <p class="helper">
+                  The first version simulates OCR. Do not upload a real student document.
+                </p>
+                <input
+                  id="documentUpload"
+                  type="file"
+                  accept=".png,.jpg,.jpeg,.pdf"
+                  onchange="handleFileSelection()"
+                />
+                <div id="fileName" class="helper"></div>
+              </div>
+
+              <div class="scenario-bar">
+                <strong>OCR demonstration scenario:</strong>
+                <button
+                  type="button"
+                  class="btn btn-small btn-success"
+                  onclick="runOCRScenario('match')"
+                >
+                  Clear Match
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-small btn-warning"
+                  onclick="runOCRScenario('branchMismatch')"
+                >
+                  Branch Mismatch
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-small btn-danger"
+                  onclick="runOCRScenario('lowQuality')"
+                >
+                  Poor Image
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-small btn-secondary"
+                  onclick="runOCRScenario('unclearMode')"
+                >
+                  Study Mode Unclear
+                </button>
+              </div>
+
+              <div id="ocrResults" class="hidden"></div>
+
+              <h3 class="section-title">
+                <span class="step-number">5</span>
+                Declaration and submission
+              </h3>
+
+              <div class="status-box warning">
+                <h4>Prototype declaration</h4>
+                <p>
+                  This demonstration records synthetic data only. OCR matching does not
+                  prove document authenticity or identity ownership.
+                </p>
+              </div>
+
+              <div style="display:flex; justify-content:flex-end; margin-top:20px;">
+                <button type="submit" class="btn btn-primary">
+                  Submit Synthetic Application
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div id="submissionSuccess" class="card hidden">
+          <div class="success-screen">
+            <div class="success-icon">✓</div>
+            <h2>Synthetic application submitted</h2>
+            <p>
+              The record has been created and routed to the appropriate officer queue.
+            </p>
+            <div id="submittedReference" class="reference-number"></div>
+            <div id="submittedSummary"></div>
+            <div style="margin-top:22px;">
+              <button class="btn btn-primary" onclick="showView('officer')">
+                Open Officer Dashboard
+              </button>
+              <button class="btn btn-secondary" onclick="startAnotherApplication()">
+                Submit Another Test
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="officerView" class="hidden">
+        <div id="dashboardView">
+          <div class="card-header" style="border:1px solid var(--gray-200); border-radius:16px; margin-bottom:18px;">
+            <div>
+              <h2>Officer Processing Dashboard</h2>
+              <p>Review prepared applications and focus on highlighted exceptions.</p>
+            </div>
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <button class="btn btn-outline btn-small" onclick="exportCSV()">
+                Export CSV Report
+              </button>
+              <button class="btn btn-secondary btn-small" onclick="restoreDemoData()">
+                Restore Demo Records
+              </button>
+            </div>
+          </div>
+
+          <div class="dashboard-kpis">
+            <div class="kpi green">
+              <span>Green Queue</span>
+              <strong id="greenCount">0</strong>
+            </div>
+            <div class="kpi amber">
+              <span>Amber Queue</span>
+              <strong id="amberCount">0</strong>
+            </div>
+            <div class="kpi red">
+              <span>Red Queue</span>
+              <strong id="redCount">0</strong>
+            </div>
+            <div class="kpi purple">
+              <span>Clarification</span>
+              <strong id="clarificationCount">0</strong>
+            </div>
+            <div class="kpi blue">
+              <span>Completed</span>
+              <strong id="completedCount">0</strong>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <div class="table-toolbar">
+                <div class="filters">
+                  <button class="filter-btn active" data-filter="All" onclick="setQueueFilter('All', this)">
+                    All
+                  </button>
+                  <button class="filter-btn" data-filter="Green" onclick="setQueueFilter('Green', this)">
+                    Green
+                  </button>
+                  <button class="filter-btn" data-filter="Amber" onclick="setQueueFilter('Amber', this)">
+                    Amber
+                  </button>
+                  <button class="filter-btn" data-filter="Red" onclick="setQueueFilter('Red', this)">
+                    Red
+                  </button>
+                  <button class="filter-btn" data-filter="Completed" onclick="setQueueFilter('Completed', this)">
+                    Completed
+                  </button>
+                </div>
+
+                <div style="width:min(330px,100%);">
+                  <input
+                    id="dashboardSearch"
+                    placeholder="Search application, institution, or status"
+                    oninput="renderDashboard()"
+                  />
+                </div>
+              </div>
+
+              <div class="table-wrap">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Application</th>
+                      <th>Type</th>
+                      <th>Institution</th>
+                      <th>Study level</th>
+                      <th>OCR</th>
+                      <th>Queue</th>
+                      <th>Recommendation</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="applicationTableBody"></tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="reviewView" class="hidden">
+          <div style="display:flex; justify-content:space-between; gap:12px; margin-bottom:16px;">
+            <button class="btn btn-secondary" onclick="closeReview()">
+              ← Back to Dashboard
+            </button>
+            <button class="btn btn-outline" onclick="exportSelectedRecord()">
+              Export Case JSON
+            </button>
+          </div>
+
+          <div id="reviewContent"></div>
+        </div>
+      </section>
+    </main>
+
+    <button class="chat-launcher" onclick="toggleChat()" aria-label="Open assistance chatbot">
+      💬
+    </button>
+
+    <aside id="chatPanel" class="chat-panel hidden" aria-label="Synthetic assistance chatbot">
+      <div class="chat-header">
+        <div>
+          <strong>Application Assistant</strong>
+          <span>Synthetic guidance only</span>
+        </div>
+        <button class="chat-close" onclick="toggleChat()" aria-label="Close chat">×</button>
+      </div>
+
+      <div id="chatMessages" class="chat-messages">
+        <div class="message bot">
+          Hello. I can explain institution codes, study levels, upload requirements,
+          OCR warnings, and the demonstration workflow. I cannot determine official
+          eligibility.
+        </div>
+      </div>
+
+      <div class="chat-input">
+        <input
+          id="chatInput"
+          placeholder="Ask about a field or error..."
+          onkeydown="if(event.key === 'Enter') sendChatMessage()"
+        />
+        <button class="btn btn-primary btn-small" onclick="sendChatMessage()">Send</button>
+      </div>
+    </aside>
+
+    <div id="decisionModal" class="modal-backdrop hidden">
+      <div class="modal">
+        <div class="modal-header">
+          <h3 id="decisionModalTitle">Record Decision</h3>
+          <button class="chat-close" style="color:var(--gray-800);" onclick="closeDecisionModal()">×</button>
+        </div>
+
+        <div class="modal-body">
+          <div class="field">
+            <label for="officerId">Synthetic officer ID</label>
+            <input id="officerId" value="OFFICER-DEMO-001" />
+          </div>
+
+          <div class="field" style="margin-top:14px;">
+            <label for="decisionRemarks">Decision remarks</label>
+            <textarea
+              id="decisionRemarks"
+              placeholder="Provide a reason when differing from the recommendation."
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" onclick="closeDecisionModal()">Cancel</button>
+          <button class="btn btn-primary" onclick="confirmDecision()">Confirm Decision</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+      Synthetic demonstration only. This website is not connected to any production
+      application, identity, OCR, or MTR system.
+    </footer>
+  </div>
+
+  <script>
+    "use strict";
+
+    const STORAGE_KEY = "studentOctopusSyntheticDemoV1";
+    const OCR_THRESHOLD = 90;
+
+    let currentQueueFilter = "All";
+    let currentReviewId = null;
+    let pendingDecision = null;
+    let currentOCR = null;
+
+    const institutionReference = [
+      {
+        id: "LS-A01",
+        type: "Local Secondary",
+        name: "Harbour View Secondary School",
+        code: "LS-HV-001",
+        branch: "Main Campus",
+        address: "18 Harbour Road, Kowloon",
+        programmes: ["Secondary Education"],
+        valid: true
+      },
+      {
+        id: "LS-B01",
+        type: "Local Secondary",
+        name: "New Horizon College",
+        code: "LS-NH-002",
+        branch: "Kowloon Campus",
+        address: "88 Learning Street, Kowloon",
+        programmes: ["Secondary Education"],
+        valid: true
+      },
+      {
+        id: "IS-A01",
+        type: "International School",
+        name: "Global Learning International School",
+        code: "IS-GL-101",
+        branch: "Kowloon Campus",
+        address: "10 International Avenue, Kowloon",
+        programmes: ["International Curriculum", "IB Diploma"],
+        valid: true
+      },
+      {
+        id: "IS-A02",
+        type: "International School",
+        name: "Global Learning International School",
+        code: "IS-GL-102",
+        branch: "Hong Kong Campus",
+        address: "20 International Avenue, Hong Kong",
+        programmes: ["International Curriculum", "IB Diploma"],
+        valid: true
+      },
+      {
+        id: "VOC-A01",
+        type: "Vocational",
+        name: "Applied Skills Institute",
+        code: "VOC-AS-201",
+        branch: "Kowloon Bay Branch",
+        address: "25 Skills Road, Kowloon Bay",
+        programmes: ["Certificate", "Diploma", "Higher Diploma"],
+        valid: true
+      },
+      {
+        id: "COL-A01",
+        type: "College",
+        name: "Metropolitan Community College",
+        code: "COL-MC-301",
+        branch: "Main Campus",
+        address: "30 College Street, Kowloon",
+        programmes: ["Foundation", "Associate Degree", "Higher Diploma"],
+        valid: true
+      },
+      {
+        id: "COL-A02",
+        type: "College",
+        name: "Metropolitan Community College",
+        code: "COL-MC-302",
+        branch: "East Campus",
+        address: "31 College Street East, Kowloon",
+        programmes: ["Foundation", "Higher Diploma"],
+        valid: true
+      },
+      {
+        id: "UNI-A01",
+        type: "University",
+        name: "Hong Kong Metropolitan University Demo",
+        code: "UNI-HKM-401",
+        branch: "Main Campus",
+        address: "40 University Road, Kowloon",
+        programmes: [
+          "Bachelor of Business Administration",
+          "Bachelor of Engineering",
+          "Bachelor of Social Sciences"
+        ],
+        valid: true
+      },
+      {
+        id: "UNI-B01",
+        type: "University",
+        name: "City Learning University Demo",
+        code: "UNI-CLU-402",
+        branch: "Central Campus",
+        address: "41 University Road, Hong Kong",
+        programmes: [
+          "Bachelor of Science",
+          "Bachelor of Arts",
+          "Bachelor of Information Systems"
+        ],
+        valid: true
+      }
+    ];
+
+    const studyLevels = {
+      "Local Secondary": [
+        "Form 1",
+        "Form 2",
+        "Form 3",
+        "Form 4",
+        "Form 5",
+        "Form 6"
+      ],
+      "International School": [
+        "Grade 7",
+        "Grade 8",
+        "Grade 9",
+        "Grade 10",
+        "Grade 11",
+        "Grade 12",
+        "Year 7",
+        "Year 8",
+        "Year 9",
+        "Year 10",
+        "Year 11",
+        "Year 12",
+        "IB Year 1",
+        "IB Year 2"
+      ],
+      "Vocational": [
+        "Foundation",
+        "Certificate",
+        "Diploma Year 1",
+        "Diploma Year 2",
+        "Higher Diploma Year 1",
+        "Higher Diploma Year 2",
+        "Higher Diploma Year 3"
+      ],
+      "College": [
+        "Foundation",
+        "Associate Degree Year 1",
+        "Associate Degree Year 2",
+        "Higher Diploma Year 1",
+        "Higher Diploma Year 2",
+        "Higher Diploma Year 3"
+      ],
+      "University": [
+        "Foundation Year",
+        "Bachelor Year 1",
+        "Bachelor Year 2",
+        "Bachelor Year 3",
+        "Bachelor Year 4",
+        "Bachelor Year 5",
+        "Bachelor Year 6",
+        "Postgraduate",
+        "Other"
+      ]
+    };
+
+    const previousProfiles = {
+      "STU-0001": {
+        studentName: "TEST STUDENT A",
+        applicantReference: "STU-0001",
+        email: "test.a@example.invalid",
+        institutionType: "Local Secondary",
+        institutionId: "LS-A01",
+        programme: "Secondary Education",
+        previousLevel: "Form 3",
+        expectedLevel: "Form 4",
+        studyMode: "Full-time"
+      },
+      "STU-0002": {
+        studentName: "TEST STUDENT B",
+        applicantReference: "STU-0002",
+        email: "test.b@example.invalid",
+        institutionType: "International School",
+        institutionId: "IS-A01",
+        programme: "IB Diploma",
+        previousLevel: "IB Year 1",
+        expectedLevel: "IB Year 2",
+        studyMode: "Full-time"
+      },
+      "STU-0003": {
+        studentName: "TEST STUDENT C",
+        applicantReference: "STU-0003",
+        email: "test.c@example.invalid",
+        institutionType: "University",
+        institutionId: "UNI-A01",
+        programme: "Bachelor of Business Administration",
+        previousLevel: "Bachelor Year 2",
+        expectedLevel: "Bachelor Year 3",
+        studyMode: "Full-time"
+      }
+    };
+
+    function nowISO() {
+      return new Date().toISOString();
+    }
+
+    function displayDate(value) {
+      if (!value) return "Not recorded";
+      return new Intl.DateTimeFormat("en-HK", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit"
+      }).format(new Date(value));
+    }
+
+    function createInitialData() {
+      const baseDate = new Date();
+      const earlier = minutes => {
+        const d = new Date(baseDate);
+        d.setMinutes(d.getMinutes() - minutes);
+        return d.toISOString();
+      };
+
+      return [
+        {
+          applicationNumber: "APP-2026-000001",
+          serialNumber: "SER-2026-000001",
+          applicantReference: "STU-0001",
+          studentName: "TEST STUDENT A",
+          applicationType: "Renewal",
+          submissionDate: earlier(160),
+          institutionType: "Local Secondary",
+          institutionName: "Harbour View Secondary School",
+          institutionCode: "LS-HV-001",
+          branch: "Main Campus",
+          address: "18 Harbour Road, Kowloon",
+          programme: "Secondary Education",
+          currentLevel: "Form 4",
+          previousLevel: "Form 3",
+          previousInstitution: "Harbour View Secondary School",
+          studyMode: "Full-time",
+          documentStatus: "Passed",
+          ocrInstitution: "Harbour View Secondary School",
+          ocrCode: "LS-HV-001",
+          ocrProgramme: "Secondary Education",
+          ocrLevel: "Form 4",
+          ocrStudyMode: "Full-time",
+          ocrConfidence: 98,
+          applicantOCRMatch: true,
+          institutionValid: true,
+          programmeValid: true,
+          progression: "Normal progression",
+          duplicate: false,
+          queue: "Green",
+          recommendation: "Eligible Recommendation",
+          reasonCode: "E01",
+          reason: "All prototype Green-lane conditions passed.",
+          additionalFlags: [],
+          status: "Pending Officer Review",
+          officerDecision: "",
+          officerId: "",
+          handledDate: "",
+          notificationStatus: "Not prepared",
+          remarks: "",
+          audit: [
+            { event: "Application submitted", at: earlier(160) },
+            { event: "OCR and automated checks completed", at: earlier(159) },
+            { event: "Routed to Green queue", at: earlier(159) }
+          ]
+        },
+        {
+          applicationNumber: "APP-2026-000002",
+          serialNumber: "SER-2026-000002",
+          applicantReference: "STU-DEMO-2002",
+          studentName: "TEST STUDENT E",
+          applicationType: "New",
+          submissionDate: earlier(125),
+          institutionType: "College",
+          institutionName: "Metropolitan Community College",
+          institutionCode: "COL-MC-301",
+          branch: "Main Campus",
+          address: "30 College Street, Kowloon",
+          programme: "Higher Diploma",
+          currentLevel: "Higher Diploma Year 1",
+          previousLevel: "Not applicable",
+          previousInstitution: "Not applicable",
+          studyMode: "Full-time",
+          documentStatus: "Passed",
+          ocrInstitution: "Metropolitan Community College",
+          ocrCode: "COL-MC-302",
+          ocrProgramme: "Higher Diploma",
+          ocrLevel: "Higher Diploma Year 1",
+          ocrStudyMode: "Full-time",
+          ocrConfidence: 72,
+          applicantOCRMatch: false,
+          institutionValid: true,
+          programmeValid: true,
+          progression: "Not applicable",
+          duplicate: false,
+          queue: "Amber",
+          recommendation: "Manual Review",
+          reasonCode: "M07",
+          reason: "Applicant-selected and OCR-suggested branch codes conflict.",
+          additionalFlags: ["OCR confidence below prototype threshold"],
+          status: "Pending Officer Review",
+          officerDecision: "",
+          officerId: "",
+          handledDate: "",
+          notificationStatus: "Not prepared",
+          remarks: "",
+          audit: [
+            { event: "Application submitted", at: earlier(125) },
+            { event: "Branch-code conflict detected", at: earlier(124) },
+            { event: "Routed to Amber queue", at: earlier(124) }
+          ]
+        },
+        {
+          applicationNumber: "APP-2026-000003",
+          serialNumber: "SER-2026-000003",
+          applicantReference: "STU-DEMO-2003",
+          studentName: "TEST STUDENT F",
+          applicationType: "Renewal",
+          submissionDate: earlier(90),
+          institutionType: "Local Secondary",
+          institutionName: "New Horizon College",
+          institutionCode: "LS-NH-002",
+          branch: "Kowloon Campus",
+          address: "88 Learning Street, Kowloon",
+          programme: "Secondary Education",
+          currentLevel: "Form 3",
+          previousLevel: "Form 3",
+          previousInstitution: "New Horizon College",
+          studyMode: "Full-time",
+          documentStatus: "Passed",
+          ocrInstitution: "New Horizon College",
+          ocrCode: "LS-NH-002",
+          ocrProgramme: "Secondary Education",
+          ocrLevel: "Form 3",
+          ocrStudyMode: "Full-time",
+          ocrConfidence: 96,
+          applicantOCRMatch: true,
+          institutionValid: true,
+          programmeValid: true,
+          progression: "Requires review",
+          duplicate: false,
+          queue: "Amber",
+          recommendation: "Manual Review",
+          reasonCode: "M04",
+          reason: "The current study level is the same as the previous record.",
+          additionalFlags: ["Supporting explanation may be required"],
+          status: "Pending Officer Review",
+          officerDecision: "",
+          officerId: "",
+          handledDate: "",
+          notificationStatus: "Not prepared",
+          remarks: "",
+          audit: [
+            { event: "Application submitted", at: earlier(90) },
+            { event: "Repeated study level detected", at: earlier(89) },
+            { event: "Routed to Amber queue", at: earlier(89) }
+          ]
+        },
+        {
+          applicationNumber: "APP-2026-000004",
+          serialNumber: "SER-2026-000004",
+          applicantReference: "STU-DEMO-2004",
+          studentName: "TEST STUDENT G",
+          applicationType: "New",
+          submissionDate: earlier(55),
+          institutionType: "University",
+          institutionName: "City Learning University Demo",
+          institutionCode: "UNI-CLU-402",
+          branch: "Central Campus",
+          address: "41 University Road, Hong Kong",
+          programme: "Bachelor of Science",
+          currentLevel: "Bachelor Year 1",
+          previousLevel: "Not applicable",
+          previousInstitution: "Not applicable",
+          studyMode: "Part-time",
+          documentStatus: "Passed",
+          ocrInstitution: "City Learning University Demo",
+          ocrCode: "UNI-CLU-402",
+          ocrProgramme: "Bachelor of Science",
+          ocrLevel: "Bachelor Year 1",
+          ocrStudyMode: "Part-time",
+          ocrConfidence: 98,
+          applicantOCRMatch: true,
+          institutionValid: true,
+          programmeValid: true,
+          progression: "Not applicable",
+          duplicate: false,
+          queue: "Red",
+          recommendation: "Reject Recommendation",
+          reasonCode: "R01",
+          reason: "Full-time status is not confirmed.",
+          additionalFlags: [],
+          status: "Pending Officer Review",
+          officerDecision: "",
+          officerId: "",
+          handledDate: "",
+          notificationStatus: "Not prepared",
+          remarks: "",
+          audit: [
+            { event: "Application submitted", at: earlier(55) },
+            { event: "Part-time study mode identified", at: earlier(54) },
+            { event: "Routed to Red queue", at: earlier(54) }
+          ]
+        }
+      ];
+    }
+
+    function loadApplications() {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (!stored) {
+        const initial = createInitialData();
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(initial));
+        return initial;
+      }
+
+      try {
+        return JSON.parse(stored);
+      } catch {
+        const initial = createInitialData();
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(initial));
+        return initial;
+      }
+    }
+
+    function saveApplications(applications) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(applications));
+    }
+
+    function restoreDemoData() {
+      if (!confirm("Restore the original synthetic demonstration records?")) return;
+      saveApplications(createInitialData());
+      currentReviewId = null;
+      renderDashboard();
+    }
+
+    function showView(view) {
+      const viewMap = {
+        home: "homeView",
+        applicant: "applicantView",
+        officer: "officerView"
+      };
+
+      Object.values(viewMap).forEach(id => {
+        document.getElementById(id).classList.add("hidden");
+      });
+
+      document.getElementById(viewMap[view]).classList.remove("hidden");
+
+      ["navHome", "navApplicant", "navOfficer"].forEach(id => {
+        document.getElementById(id).classList.remove("active");
+      });
+
+      const navButton =
+        view === "home"
+          ? "navHome"
+          : view === "applicant"
+            ? "navApplicant"
+            : "navOfficer";
+
+      document.getElementById(navButton).classList.add("active");
+
+      if (view === "officer") {
+        closeReview();
+        renderDashboard();
+      }
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function handleApplicationType() {
+      const type = document.querySelector(
+        'input[name="applicationType"]:checked'
+      ).value;
+
+      document
+        .getElementById("renewalPanel")
+        .classList.toggle("hidden", type !== "Renewal");
+    }
+
+    function populateInstitutions() {
+      const type = document.getElementById("institutionType").value;
+      const search = document
+        .getElementById("institutionSearch")
+        .value.trim()
+        .toLowerCase();
+      const select = document.getElementById("institution");
+      const existing = select.value;
+
+      const matching = institutionReference.filter(item => {
+        const haystack = [
+          item.name,
+          item.code,
+          item.branch,
+          item.address
+        ]
+          .join(" ")
+          .toLowerCase();
+
+        return item.type === type && haystack.includes(search);
+      });
+
+      select.innerHTML = matching.length
+        ? matching
+            .map(
+              item =>
+                `<option value="${item.id}">${item.name} — ${item.branch} (${item.code})</option>`
+            )
+            .join("")
+        : `<option value="">No matching synthetic institution</option>`;
+
+      if (matching.some(item => item.id === existing)) {
+        select.value = existing;
+      }
+
+      applyInstitution();
+      populateProgrammes();
+    }
+
+    function applyInstitution() {
+      const selectedId = document.getElementById("institution").value;
+      const institution = institutionReference.find(item => item.id === selectedId);
+
+      document.getElementById("institutionCode").value = institution?.code || "";
+      document.getElementById("institutionBranch").value =
+        institution?.branch || "";
+      document.getElementById("institutionAddress").value =
+        institution?.address || "";
+    }
+
+    function populateProgrammes() {
+      const selectedId = document.getElementById("institution").value;
+      const institution = institutionReference.find(item => item.id === selectedId);
+      const select = document.getElementById("programme");
+
+      select.innerHTML = institution
+        ? institution.programmes
+            .map(programme => `<option value="${programme}">${programme}</option>`)
+            .join("")
+        : `<option value="">Select an institution first</option>`;
+    }
+
+    function populateStudyLevels() {
+      const type = document.getElementById("institutionType").value;
+      const select = document.getElementById("currentLevel");
+
+      select.innerHTML = (studyLevels[type] || ["Other"])
+        .map(level => `<option value="${level}">${level}</option>`)
+        .join("");
+    }
+
+    function loadRenewalProfile() {
+      const profileId = document.getElementById("renewalProfile").value;
+      const profile = previousProfiles[profileId];
+
+      if (!profile) return;
+
+      document.getElementById("studentName").value = profile.studentName;
+      document.getElementById("applicantReference").value =
+        profile.applicantReference;
+      document.getElementById("email").value = profile.email;
+      document.getElementById("institutionType").value =
+        profile.institutionType;
+
+      populateInstitutions();
+      document.getElementById("institution").value = profile.institutionId;
+      applyInstitution();
+      populateProgrammes();
+      document.getElementById("programme").value = profile.programme;
+      populateStudyLevels();
+      document.getElementById("currentLevel").value = profile.expectedLevel;
+      document.getElementById("studyMode").value = profile.studyMode;
+    }
+
+    function handleDragOver(event) {
+      event.preventDefault();
+      document.getElementById("uploadZone").classList.add("dragover");
+    }
+
+    function handleDragLeave(event) {
+      event.preventDefault();
+      document.getElementById("uploadZone").classList.remove("dragover");
+    }
+
+    function handleDrop(event) {
+      event.preventDefault();
+      document.getElementById("uploadZone").classList.remove("dragover");
+
+      const files = event.dataTransfer.files;
+      if (!files.length) return;
+
+      document.getElementById("fileName").textContent =
+        `Selected synthetic file: ${files[0].name}`;
+    }
+
+    function handleFileSelection() {
+      const input = document.getElementById("documentUpload");
+      document.getElementById("fileName").textContent = input.files.length
+        ? `Selected synthetic file: ${input.files[0].name}`
+        : "";
+    }
+
+    function confidenceClass(value) {
+      if (value >= 90) return "high";
+      if (value >= 75) return "medium";
+      return "low";
+    }
+
+    function runOCRScenario(scenario) {
+      const institutionId = document.getElementById("institution").value;
+      const institution = institutionReference.find(item => item.id === institutionId);
+
+      if (!institution) {
+        alert("Select an institution before running the OCR demonstration.");
+        return;
+      }
+
+      const programme = document.getElementById("programme").value;
+      const level = document.getElementById("currentLevel").value;
+      const studyMode = document.getElementById("studyMode").value;
+      const studentName = document.getElementById("studentName").value;
+
+      let result = {
+        scenario,
+        quality: "Passed",
+        studentName,
+        institutionName: institution.name,
+        institutionCode: institution.code,
+        programme,
+        level,
+        studyMode,
+        expiry: "31/08/2027",
+        confidences: {
+          studentName: 98,
+          institutionName: 98,
+          institutionCode: 97,
+          programme: 96,
+          level: 96,
+          studyMode: 95
+        }
+      };
+
+      if (scenario === "branchMismatch") {
+        const alternative = institutionReference.find(
+          item =>
+            item.type === institution.type &&
+            item.name === institution.name &&
+            item.id !== institution.id
+        );
+
+        result.institutionCode = alternative?.code || `${institution.code}-ALT`;
+        result.institutionName = alternative?.name || institution.name;
+        result.confidences.institutionCode = 72;
+        result.confidences.institutionName = 78;
+      }
+
+      if (scenario === "lowQuality") {
+        result.quality = "Failed";
+        result.institutionName = "Unreadable";
+        result.institutionCode = "Unknown";
+        result.programme = "Unreadable";
+        result.confidences = {
+          studentName: 66,
+          institutionName: 41,
+          institutionCode: 38,
+          programme: 44,
+          level: 55,
+          studyMode: 49
+        };
+      }
+
+      if (scenario === "unclearMode") {
+        result.studyMode = "Unknown";
+        result.confidences.studyMode = 58;
+      }
+
+      currentOCR = result;
+      renderOCRResults(result);
+    }
+
+    function renderOCRResults(result) {
+      const applicantValues = {
+        studentName: document.getElementById("studentName").value,
+        institutionName:
+          institutionReference.find(
+            item => item.id === document.getElementById("institution").value
+          )?.name || "",
+        institutionCode: document.getElementById("institutionCode").value,
+        programme: document.getElementById("programme").value,
+        level: document.getElementById("currentLevel").value,
+        studyMode: document.getElementById("studyMode").value
+      };
+
+      const comparisons = [
+        ["Student name", applicantValues.studentName, result.studentName, result.confidences.studentName],
+        ["Institution", applicantValues.institutionName, result.institutionName, result.confidences.institutionName],
+        ["Institution code", applicantValues.institutionCode, result.institutionCode, result.confidences.institutionCode],
+        ["Programme", applicantValues.programme, result.programme, result.confidences.programme],
+        ["Study level", applicantValues.level, result.level, result.confidences.level],
+        ["Study mode", applicantValues.studyMode, result.studyMode, result.confidences.studyMode]
+      ];
+
+      const mismatches = comparisons.filter(
+        item =>
+          String(item[1]).trim().toLowerCase() !==
+          String(item[2]).trim().toLowerCase()
+      );
+
+      const container = document.getElementById("ocrResults");
+      container.classList.remove("hidden");
+
+      container.innerHTML = `
+        <div class="ocr-panel">
+          <div class="ocr-column">
+            <h4>Applicant-entered information</h4>
+            ${comparisons
+              .map(
+                item => `
+                  <div class="comparison-row">
+                    <div>
+                      <strong>${escapeHtml(item[0])}</strong>
+                      <span>${escapeHtml(item[1])}</span>
+                    </div>
+                  </div>
+                `
+              )
+              .join("")}
+          </div>
+
+          <div class="ocr-column">
+            <h4>Simulated OCR extraction</h4>
+            ${comparisons
+              .map(
+                item => `
+                  <div class="comparison-row">
+                    <div>
+                      <strong>${escapeHtml(item[0])}</strong>
+                      <span>${escapeHtml(item[2])}</span>
+                    </div>
+                    <div class="confidence ${confidenceClass(item[3])}">
+                      ${item[3]}%
+                    </div>
+                  </div>
+                `
+              )
+              .join("")}
+          </div>
+        </div>
+
+        <div class="status-box ${
+          result.quality === "Failed"
+            ? "danger"
+            : mismatches.length
+              ? "warning"
+              : "success"
+        }">
+          <h4>
+            ${
+              result.quality === "Failed"
+                ? "Document quality check failed"
+                : mismatches.length
+                  ? "Applicant and OCR information require attention"
+                  : "Applicant and OCR information match"
+            }
+          </h4>
+          <p>
+            ${
+              result.quality === "Failed"
+                ? "The synthetic document could not be read reliably. Upload a clearer, complete image before continuing."
+                : mismatches.length
+                  ? `${mismatches.map(item => item[0]).join(", ")} do not match and will be routed for clarification or review.`
+                  : "All compared fields match in this synthetic scenario."
+            }
+          </p>
+        </div>
+      `;
+
+      currentOCR.mismatches = mismatches.map(item => item[0]);
+    }
+
+    function expectedProgression(type, previous, current) {
+      if (!previous || previous === "Not applicable") {
+        return "Not applicable";
+      }
+
+      const levels = studyLevels[type] || [];
+      const previousIndex = levels.indexOf(previous);
+      const currentIndex = levels.indexOf(current);
+
+      if (previousIndex === -1 || currentIndex === -1) {
+        return "Requires review";
+      }
+
+      return currentIndex === previousIndex + 1
+        ? "Normal progression"
+        : "Requires review";
+    }
+
+    function generateIdentifiers(applications) {
+      const next = applications.length + 1;
+      const padded = String(next).padStart(6, "0");
+
+      return {
+        applicationNumber: `APP-2026-${padded}`,
+        serialNumber: `SER-2026-${padded}`
+      };
+    }
+
+    function determineTriage(data) {
+      const flags = [];
+      let queue = "Green";
+      let recommendation = "Eligible Recommendation";
+      let reasonCode = "E01";
+      let reason = "All prototype Green-lane conditions passed.";
+
+      if (data.studyMode === "Part-time") {
+        return {
+          queue: "Red",
+          recommendation: "Reject Recommendation",
+          reasonCode: "R01",
+          reason: "Full-time status is not confirmed.",
+          flags
+        };
+      }
+
+      if (data.documentStatus !== "Passed") {
+        return {
+          queue: "Amber",
+          recommendation: "Applicant Clarification Required",
+          reasonCode: "C02",
+          reason: "A clearer or complete supporting document is required.",
+          flags: ["Document quality failed"]
+        };
+      }
+
+      if (!data.applicantOCRMatch) {
+        flags.push("Applicant-entered values differ from OCR-extracted values");
+        queue = "Amber";
+        recommendation = "Applicant Clarification Required";
+        reasonCode = "M07";
+        reason = "Applicant and OCR information conflict.";
+      }
+
+      if (data.ocrConfidence < OCR_THRESHOLD) {
+        flags.push("OCR confidence below prototype threshold");
+
+        if (queue === "Green") {
+          queue = "Amber";
+          recommendation = "Manual Review";
+          reasonCode = "M05";
+          reason = "OCR confidence is below the prototype threshold.";
+        }
+      }
+
+      if (data.studyMode === "Unknown") {
+        flags.push("Full-time status is unclear");
+        queue = "Amber";
+        recommendation = "Manual Review";
+        reasonCode = "M02";
+        reason = "Full-time status is unclear.";
+      }
+
+      if (!data.institutionValid || !data.programmeValid) {
+        flags.push("Institution or programme cannot be confirmed");
+        queue = "Amber";
+        recommendation = "Manual Review";
+        reasonCode = "M03";
+        reason = "Institution or programme validation requires review.";
+      }
+
+      if (
+        data.applicationType === "Renewal" &&
+        data.progression === "Requires review"
+      ) {
+        flags.push("Academic progression requires review");
+
+        if (queue === "Green") {
+          queue = "Amber";
+          recommendation = "Manual Review";
+          reasonCode = "M04";
+          reason = "Academic progression does not match the expected pathway.";
+        }
+      }
+
+      if (data.duplicate) {
+        flags.push("Possible duplicate application");
+        queue = "Red";
+        recommendation = "Manual Review";
+        reasonCode = "M08";
+        reason = "A possible duplicate application requires authorised review.";
+      }
+
+      return { queue, recommendation, reasonCode, reason, flags };
+    }
+
+    function submitApplication(event) {
+      event.preventDefault();
+
+      if (!currentOCR) {
+        alert("Run one of the simulated OCR scenarios before submitting.");
+        return;
+      }
+
+      const applications = loadApplications();
+      const identifiers = generateIdentifiers(applications);
+      const applicationType = document.querySelector(
+        'input[name="applicationType"]:checked'
+      ).value;
+      const institution = institutionReference.find(
+        item => item.id === document.getElementById("institution").value
+      );
+
+      if (!institution) {
+        alert("Select a valid synthetic institution.");
+        return;
+      }
+
+      const renewalProfileId =
+        document.getElementById("renewalProfile").value;
+      const previousProfile = previousProfiles[renewalProfileId];
+
+      const currentLevel = document.getElementById("currentLevel").value;
+      const programme = document.getElementById("programme").value;
+      const studyMode = document.getElementById("studyMode").value;
+
+      const match =
+        currentOCR.quality === "Passed" &&
+        currentOCR.mismatches.length === 0;
+
+      const confidenceValues = Object.values(currentOCR.confidences);
+      const lowestConfidence = Math.min(...confidenceValues);
+
+      const progression =
+        applicationType === "Renewal"
+          ? expectedProgression(
+              institution.type,
+              previousProfile?.previousLevel || "",
+              currentLevel
+            )
+          : "Not applicable";
+
+      const duplicate = applications.some(
+        application =>
+          application.applicantReference ===
+            document.getElementById("applicantReference").value &&
+          application.status !== "Rejected" &&
+          application.applicationType === applicationType
+      );
+
+      const dataForTriage = {
+        applicationType,
+        studyMode,
+        documentStatus:
+          currentOCR.quality === "Passed" ? "Passed" : "Failed",
+        applicantOCRMatch: match,
+        ocrConfidence: lowestConfidence,
+        institutionValid: institution.valid,
+        programmeValid: institution.programmes.includes(programme),
+        progression,
+        duplicate
+      };
+
+      const triage = determineTriage(dataForTriage);
+      const timestamp = nowISO();
+
+      const application = {
+        ...identifiers,
+        applicantReference:
+          document.getElementById("applicantReference").value,
+        studentName: document.getElementById("studentName").value,
+        email: document.getElementById("email").value,
+        applicationType,
+        submissionDate: timestamp,
+        institutionType: institution.type,
+        institutionName: institution.name,
+        institutionCode: institution.code,
+        branch: institution.branch,
+        address: institution.address,
+        programme,
+        currentLevel,
+        previousLevel: previousProfile?.previousLevel || "Not applicable",
+        previousInstitution:
+          previousProfile
+            ? institutionReference.find(
+                item => item.id === previousProfile.institutionId
+              )?.name || "Previous record"
+            : "Not applicable",
+        changeDeclaration:
+          applicationType === "Renewal"
+            ? document.getElementById("changeDeclaration").value
+            : "Not applicable",
+        studyMode,
+        documentStatus:
+          currentOCR.quality === "Passed" ? "Passed" : "Failed",
+        ocrInstitution: currentOCR.institutionName,
+        ocrCode: currentOCR.institutionCode,
+        ocrProgramme: currentOCR.programme,
+        ocrLevel: currentOCR.level,
+        ocrStudyMode: currentOCR.studyMode,
+        ocrConfidence: lowestConfidence,
+        applicantOCRMatch: match,
+        institutionValid: institution.valid,
+        programmeValid: institution.programmes.includes(programme),
+        progression,
+        duplicate,
+        queue: triage.queue,
+        recommendation: triage.recommendation,
+        reasonCode: triage.reasonCode,
+        reason: triage.reason,
+        additionalFlags: triage.flags,
+        status:
+          triage.recommendation === "Applicant Clarification Required"
+            ? "Applicant Clarification Required"
+            : "Pending Officer Review",
+        officerDecision: "",
+        officerId: "",
+        handledDate: "",
+        notificationStatus:
+          triage.recommendation === "Applicant Clarification Required"
+            ? "Clarification request prepared"
+            : "Not prepared",
+        remarks: "",
+        audit: [
+          { event: "Synthetic application submitted", at: timestamp },
+          { event: "Simulated OCR completed", at: timestamp },
+          {
+            event: `Routed to ${triage.queue} queue: ${triage.reasonCode}`,
+            at: timestamp
+          }
+        ]
+      };
+
+      applications.push(application);
+      saveApplications(applications);
+
+      document
+        .getElementById("applicationFormContainer")
+        .classList.add("hidden");
+      document
+        .getElementById("submissionSuccess")
+        .classList.remove("hidden");
+
+      document.getElementById("submittedReference").textContent =
+        application.applicationNumber;
+
+      document.getElementById("submittedSummary").innerHTML = `
+        <div class="status-box ${
+          application.queue === "Green"
+            ? "success"
+            : application.queue === "Amber"
+              ? "warning"
+              : "danger"
+        }">
+          <h4>${escapeHtml(application.recommendation)}</h4>
+          <p>
+            Queue: ${escapeHtml(application.queue)} |
+            Reason: ${escapeHtml(application.reasonCode)} —
+            ${escapeHtml(application.reason)}
+          </p>
+        </div>
+      `;
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function resetForm() {
+      document.getElementById("applicationForm").reset();
+      currentOCR = null;
+      document.getElementById("ocrResults").classList.add("hidden");
+      document.getElementById("ocrResults").innerHTML = "";
+      document.getElementById("fileName").textContent = "";
+      document.getElementById("applicantReference").value =
+        `STU-DEMO-${Math.floor(1000 + Math.random() * 8999)}`;
+      handleApplicationType();
+      populateInstitutions();
+      populateStudyLevels();
+    }
+
+    function startAnotherApplication() {
+      document
+        .getElementById("submissionSuccess")
+        .classList.add("hidden");
+      document
+        .getElementById("applicationFormContainer")
+        .classList.remove("hidden");
+      resetForm();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function setQueueFilter(filter, button) {
+      currentQueueFilter = filter;
+
+      document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      button.classList.add("active");
+      renderDashboard();
+    }
+
+    function renderDashboard() {
+      const applications = loadApplications();
+      const search = document
+        .getElementById("dashboardSearch")
+        ?.value.trim()
+        .toLowerCase() || "";
+
+      const active = applications.filter(
+        application => application.status !== "Completed"
+      );
+
+      document.getElementById("greenCount").textContent = active.filter(
+        item => item.queue === "Green"
+      ).length;
+
+      document.getElementById("amberCount").textContent = active.filter(
+        item => item.queue === "Amber"
+      ).length;
+
+      document.getElementById("redCount").textContent = active.filter(
+        item => item.queue === "Red"
+      ).length;
+
+      document.getElementById("clarificationCount").textContent =
+        applications.filter(
+          item => item.status === "Applicant Clarification Required"
+        ).length;
+
+      document.getElementById("completedCount").textContent =
+        applications.filter(item => item.status === "Completed").length;
+
+      const filtered = applications.filter(application => {
+        const filterMatch =
+          currentQueueFilter === "All" ||
+          application.queue === currentQueueFilter ||
+          (currentQueueFilter === "Completed" &&
+            application.status === "Completed");
+
+        const haystack = [
+          application.applicationNumber,
+          application.serialNumber,
+          application.institutionName,
+          application.institutionCode,
+          application.recommendation,
+          application.status
+        ]
+          .join(" ")
+          .toLowerCase();
+
+        return filterMatch && haystack.includes(search);
+      });
+
+      const body = document.getElementById("applicationTableBody");
+
+      if (!filtered.length) {
+        body.innerHTML = `
+          <tr>
+            <td colspan="9">
+              <div class="empty-state">No applications match this filter.</div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      body.innerHTML = filtered
+        .map(
+          application => `
+            <tr>
+              <td>
+                <strong>${escapeHtml(application.applicationNumber)}</strong><br />
+                <span style="color:var(--gray-600);">${escapeHtml(application.serialNumber)}</span>
+              </td>
+              <td>${escapeHtml(application.applicationType)}</td>
+              <td>
+                <strong>${escapeHtml(application.institutionName)}</strong><br />
+                <span style="color:var(--gray-600);">${escapeHtml(application.institutionCode)}</span>
+              </td>
+              <td>${escapeHtml(application.currentLevel)}</td>
+              <td>
+                <span class="confidence ${confidenceClass(application.ocrConfidence)}">
+                  ${application.ocrConfidence}%
+                </span>
+              </td>
+              <td>
+                <span class="pill ${
+                  application.queue === "Green"
+                    ? "pill-green"
+                    : application.queue === "Amber"
+                      ? "pill-amber"
+                      : "pill-red"
+                }">
+                  ${escapeHtml(application.queue)}
+                </span>
+              </td>
+              <td>${escapeHtml(application.recommendation)}</td>
+              <td>${escapeHtml(application.status)}</td>
+              <td>
+                <button
+                  class="btn btn-primary btn-small"
+                  onclick="openReview('${escapeHtml(application.applicationNumber)}')"
+                >
+                  Review
+                </button>
+              </td>
+            </tr>
+          `
+        )
+        .join("");
+    }
+
+    function openReview(applicationNumber) {
+      currentReviewId = applicationNumber;
+      const application = loadApplications().find(
+        item => item.applicationNumber === applicationNumber
+      );
+
+      if (!application) return;
+
+      document.getElementById("dashboardView").classList.add("hidden");
+      document.getElementById("reviewView").classList.remove("hidden");
+
+      const checks = [
+        ["Information complete", application.documentStatus === "Passed" ? "Passed" : "Review"],
+        ["Document quality", application.documentStatus],
+        ["Applicant/OCR match", application.applicantOCRMatch ? "Passed" : "Mismatch"],
+        ["Institution validation", application.institutionValid ? "Passed" : "Review"],
+        ["Programme validation", application.programmeValid ? "Passed" : "Review"],
+        ["Historical comparison", application.applicationType === "Renewal" ? application.progression : "Not applicable"],
+        ["Duplicate check", application.duplicate ? "Possible duplicate" : "Passed"],
+        ["Full-time status", application.studyMode]
+      ];
+
+      document.getElementById("reviewContent").innerHTML = `
+        <div class="review-layout">
+          <div>
+            <section class="review-section">
+              <h4>Application Summary</h4>
+              <div class="review-grid">
+                ${reviewItem("Application Number", application.applicationNumber)}
+                ${reviewItem("Serial Number", application.serialNumber)}
+                ${reviewItem("Application Type", application.applicationType)}
+                ${reviewItem("Submitted", displayDate(application.submissionDate))}
+                ${reviewItem("Synthetic Applicant", application.studentName)}
+                ${reviewItem("Status", application.status)}
+              </div>
+            </section>
+
+            <section class="review-section">
+              <h4>Institution and Programme</h4>
+              <div class="review-grid">
+                ${reviewItem("Applicant Institution", application.institutionName)}
+                ${reviewItem("Applicant Code", application.institutionCode)}
+                ${reviewItem("OCR Institution", application.ocrInstitution)}
+                ${reviewItem("OCR-Suggested Code", application.ocrCode)}
+                ${reviewItem("Branch", application.branch)}
+                ${reviewItem("Address", application.address)}
+                ${reviewItem("Programme", application.programme)}
+                ${reviewItem("OCR Programme", application.ocrProgramme)}
+              </div>
+            </section>
+
+            <section class="review-section">
+              <h4>Study and Historical Information</h4>
+              <div class="review-grid">
+                ${reviewItem("Current Study Level", application.currentLevel)}
+                ${reviewItem("OCR Study Level", application.ocrLevel)}
+                ${reviewItem("Previous Study Level", application.previousLevel)}
+                ${reviewItem("Progression", application.progression)}
+                ${reviewItem("Study Mode", application.studyMode)}
+                ${reviewItem("OCR Study Mode", application.ocrStudyMode)}
+                ${reviewItem("Previous Institution", application.previousInstitution)}
+                ${reviewItem("Declared Change", application.changeDeclaration || "Not applicable")}
+              </div>
+            </section>
+
+            <section class="review-section">
+              <h4>Automated Checks</h4>
+              <div class="card-body" style="padding:14px;">
+                <ul class="check-list">
+                  ${checks
+                    .map(([label, value]) => {
+                      const positive = ["Passed", "Normal progression", "Full-time", "Not applicable"].includes(value);
+                      const warning = ["Review", "Mismatch", "Requires review", "Unknown"].includes(value);
+                      const css = positive
+                        ? "pill-green"
+                        : warning
+                          ? "pill-amber"
+                          : "pill-red";
+
+                      return `
+                        <li>
+                          <span>${escapeHtml(label)}</span>
+                          <span class="pill ${css}">${escapeHtml(value)}</span>
+                        </li>
+                      `;
+                    })
+                    .join("")}
+                </ul>
+              </div>
+            </section>
+
+            <section class="review-section">
+              <h4>Audit History</h4>
+              <div class="card-body">
+                <ul class="audit-list">
+                  ${application.audit
+                    .slice()
+                    .reverse()
+                    .map(
+                      entry => `
+                        <li>
+                          <strong>${escapeHtml(entry.event)}</strong>
+                          <span>${displayDate(entry.at)}</span>
+                        </li>
+                      `
+                    )
+                    .join("")}
+                </ul>
+              </div>
+            </section>
+          </div>
+
+          <aside class="decision-card">
+            <div class="queue-banner queue-${escapeHtml(application.queue)}">
+              ${escapeHtml(application.queue)} Queue
+            </div>
+
+            <h3>${escapeHtml(application.recommendation)}</h3>
+            <p>
+              <strong>${escapeHtml(application.reasonCode)}</strong><br />
+              ${escapeHtml(application.reason)}
+            </p>
+
+            <div style="margin-bottom:15px;">
+              <strong style="font-size:0.78rem;">OCR confidence</strong>
+              <div style="margin-top:5px;">
+                <span class="confidence ${confidenceClass(application.ocrConfidence)}">
+                  ${application.ocrConfidence}%
+                </span>
+              </div>
+            </div>
+
+            ${
+              application.additionalFlags.length
+                ? `
+                  <div class="status-box warning">
+                    <h4>Additional flags</h4>
+                    <p>${application.additionalFlags.map(escapeHtml).join("<br />")}</p>
+                  </div>
+                `
+                : `
+                  <div class="status-box success">
+                    <h4>No additional flags</h4>
+                    <p>No other exceptions were identified by the prototype rules.</p>
+                  </div>
+                `
+            }
+
+            <div class="decision-actions">
+              <button
+                class="btn btn-success"
+                onclick="openDecisionModal('Approved')"
+              >
+                Approve
+              </button>
+              <button
+                class="btn btn-warning"
+                onclick="openDecisionModal('Manual Review')"
+              >
+                Send to Manual Review
+              </button>
+              <button
+                class="btn btn-secondary"
+                onclick="openDecisionModal('Applicant Clarification Required')"
+              >
+                Request Clarification
+              </button>
+              <button
+                class="btn btn-danger"
+                onclick="openDecisionModal('Rejected')"
+              >
+                Reject
+              </button>
+            </div>
+
+            <div class="status-box warning" style="margin-top:15px;">
+              <h4>Decision authority</h4>
+              <p>
+                Prototype recommendations do not replace authorised procedures
+                or officer judgement.
+              </p>
+            </div>
+          </aside>
+        </div>
+      `;
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function reviewItem(label, value) {
+      return `
+        <div class="review-item">
+          <small>${escapeHtml(label)}</small>
+          <strong>${escapeHtml(value ?? "Not available")}</strong>
+        </div>
+      `;
+    }
+
+    function closeReview() {
+      document.getElementById("reviewView").classList.add("hidden");
+      document.getElementById("dashboardView").classList.remove("hidden");
+      currentReviewId = null;
+      renderDashboard();
+    }
+
+    function openDecisionModal(decision) {
+      pendingDecision = decision;
+      document.getElementById("decisionModalTitle").textContent =
+        `Record Decision: ${decision}`;
+      document.getElementById("decisionRemarks").value = "";
+      document.getElementById("decisionModal").classList.remove("hidden");
+    }
+
+    function closeDecisionModal() {
+      pendingDecision = null;
+      document.getElementById("decisionModal").classList.add("hidden");
+    }
+
+    function confirmDecision() {
+      if (!currentReviewId || !pendingDecision) return;
+
+      const officerId = document.getElementById("officerId").value.trim();
+      const remarks = document.getElementById("decisionRemarks").value.trim();
+
+      if (!officerId) {
+        alert("Enter a synthetic officer ID.");
+        return;
+      }
+
+      const applications = loadApplications();
+      const index = applications.findIndex(
+        item => item.applicationNumber === currentReviewId
+      );
+
+      if (index === -1) return;
+
+      const application = applications[index];
+      const handledAt = nowISO();
+
+      const decisionMap = {
+        Approved: {
+          status: "Completed",
+          notification: "Approval notification prepared"
+        },
+        Rejected: {
+          status: "Completed",
+          notification: "Rejection notification prepared"
+        },
+        "Manual Review": {
+          status: "Manual Review",
+          notification: "No final notification prepared"
+        },
+        "Applicant Clarification Required": {
+          status: "Applicant Clarification Required",
+          notification: "Clarification request prepared"
+        }
+      };
+
+      const expectedAgreement =
+        (application.recommendation === "Eligible Recommendation" &&
+          pendingDecision === "Approved") ||
+        (application.recommendation === "Reject Recommendation" &&
+          pendingDecision === "Rejected") ||
+        (application.recommendation === "Manual Review" &&
+          pendingDecision === "Manual Review") ||
+        (application.recommendation === "Applicant Clarification Required" &&
+          pendingDecision === "Applicant Clarification Required");
+
+      if (!expectedAgreement && !remarks) {
+        alert(
+          "The officer decision differs from the prototype recommendation. Add a reason in the remarks field."
+        );
+        return;
+      }
+
+      application.officerDecision = pendingDecision;
+      application.officerId = officerId;
+      application.handledDate = handledAt;
+      application.status = decisionMap[pendingDecision].status;
+      application.notificationStatus =
+        decisionMap[pendingDecision].notification;
+      application.remarks = remarks;
+      application.audit.push({
+        event: `Officer decision recorded: ${pendingDecision}${
+          expectedAgreement ? "" : " — recommendation overridden"
+        }`,
+        at: handledAt
+      });
+      application.audit.push({
+        event: decisionMap[pendingDecision].notification,
+        at: handledAt
+      });
+
+      applications[index] = application;
+      saveApplications(applications);
+      closeDecisionModal();
+      openReview(currentReviewId);
+    }
+
+    function exportCSV() {
+      const applications = loadApplications();
+
+      const headers = [
+        "Application Number",
+        "Serial Number",
+        "Application Type",
+        "Submission Date",
+        "Institution",
+        "Institution Code",
+        "Programme",
+        "Current Study Level",
+        "Previous Study Level",
+        "Study Mode",
+        "OCR Confidence",
+        "Queue",
+        "Recommendation",
+        "Reason Code",
+        "Status",
+        "Officer Decision",
+        "Officer ID",
+        "Handled Date",
+        "Notification Status",
+        "Remarks"
+      ];
+
+      const rows = applications.map(application => [
+        application.applicationNumber,
+        application.serialNumber,
+        application.applicationType,
+        application.submissionDate,
+        application.institutionName,
+        application.institutionCode,
+        application.programme,
+        application.currentLevel,
+        application.previousLevel,
+        application.studyMode,
+        application.ocrConfidence,
+        application.queue,
+        application.recommendation,
+        application.reasonCode,
+        application.status,
+        application.officerDecision,
+        application.officerId,
+        application.handledDate,
+        application.notificationStatus,
+        application.remarks
+      ]);
+
+      const csv = [headers, ...rows]
+        .map(row => row.map(csvEscape).join(","))
+        .join("\n");
+
+      downloadTextFile(
+        "student-octopus-synthetic-report.csv",
+        csv,
+        "text/csv;charset=utf-8;"
+      );
+    }
+
+    function exportSelectedRecord() {
+      const application = loadApplications().find(
+        item => item.applicationNumber === currentReviewId
+      );
+
+      if (!application) return;
+
+      downloadTextFile(
+        `${application.applicationNumber}.json`,
+        JSON.stringify(application, null, 2),
+        "application/json"
+      );
+    }
+
+    function downloadTextFile(filename, content, type) {
+      const blob = new Blob([content], { type });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      URL.revokeObjectURL(url);
+    }
+
+    function csvEscape(value) {
+      const text = String(value ?? "");
+      return `"${text.replaceAll('"', '""')}"`;
+    }
+
+    function toggleChat() {
+      document.getElementById("chatPanel").classList.toggle("hidden");
+    }
+
+    function sendChatMessage() {
+      const input = document.getElementById("chatInput");
+      const text = input.value.trim();
+
+      if (!text) return;
+
+      addChatMessage(text, "user");
+      input.value = "";
+
+      window.setTimeout(() => {
+        addChatMessage(chatResponse(text), "bot");
+      }, 250);
+    }
+
+    function addChatMessage(text, type) {
+      const container = document.getElementById("chatMessages");
+      const message = document.createElement("div");
+
+      message.className = `message ${type}`;
+      message.textContent = text;
+      container.appendChild(message);
+      container.scrollTop = container.scrollHeight;
+    }
+
+    function chatResponse(question) {
+      const q = question.toLowerCase();
+
+      if (q.includes("branch") || q.includes("code")) {
+        return "Search using the institution name, code, branch, or address. If several branches have similar names, select the branch shown on the supporting document. The prototype does not guess between ambiguous codes.";
+      }
+
+      if (
+        q.includes("year 10") ||
+        q.includes("grade 10") ||
+        q.includes("form 4")
+      ) {
+        return "International and local study levels should follow approved pathway-specific mappings. This demonstration keeps the level names separate and routes unknown equivalences for manual review rather than assuming that every label has an exact match.";
+      }
+
+      if (q.includes("full-time") || q.includes("full time")) {
+        return "Select Full-time only when the supporting document confirms the study mode. If the document does not clearly show the status, use the unclear option or provide another approved document.";
+      }
+
+      if (
+        q.includes("blurry") ||
+        q.includes("upload") ||
+        q.includes("photo") ||
+        q.includes("document")
+      ) {
+        return "Upload a complete, clear document image with all four corners visible. Avoid glare, shadows, cropping, and low resolution. This synthetic demo simulates the quality check and does not inspect real files.";
+      }
+
+      if (q.includes("eligible") || q.includes("approve")) {
+        return "I can explain the demonstration fields and routing logic, but I cannot determine official eligibility or approve an application. An authorised officer and approved rules are required.";
+      }
+
+      if (q.includes("customer service") || q.includes("help")) {
+        return "Try reviewing the field guidance and synthetic reference information first. If the issue remains unresolved in a future production process, the applicant should be directed to the approved customer service or assisted-submission channel.";
+      }
+
+      return "This synthetic assistant can explain institution selection, school codes, study levels, document uploads, OCR warnings, and workflow status. Official decisions remain with authorised officers.";
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function initialize() {
+      populateInstitutions();
+      populateStudyLevels();
+      applyInstitution();
+      populateProgrammes();
+      handleApplicationType();
+      loadApplications();
+      renderDashboard();
+    }
+
+    initialize();
+  </script>
 </body>
 </html>
-​
